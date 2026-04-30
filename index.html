@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Soft Skills Engineering | Professional Site</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,8 +15,20 @@
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #000; overflow-x: hidden; color: white; line-height: 1.4; }
-        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #000; 
+            overflow-x: hidden; 
+            color: white; 
+            line-height: 1.4;
+            width: 100%;
+            position: relative;
+        }
+        html { 
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
+        }
         
         html.lenis { height: auto; }
         .lenis.lenis-smooth { scroll-behavior: auto; }
@@ -37,9 +49,9 @@
         .back-to-top {
             position: fixed;
             bottom: 80px;
-            right: 25px;
-            width: 45px;
-            height: 45px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
             background: #e67e22;
             border-radius: 50%;
             display: flex;
@@ -64,7 +76,7 @@
         
         .back-to-top i {
             color: white;
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .sheryians-nav { 
@@ -74,61 +86,65 @@
             opacity: 0;
             transform: translateY(-20px);
         }
-        .nav-scrolled { background-color: rgba(0,0,0,0.9); backdrop-filter: blur(12px); border-bottom-color: rgba(230,126,34,0.3); }
-        .nav-container { max-width: 100%; margin: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 75px; position: relative; }
+        .nav-scrolled { background-color: rgba(0,0,0,0.95); backdrop-filter: blur(12px); border-bottom-color: rgba(230,126,34,0.3); }
+        .nav-container { 
+            max-width: 100%; 
+            margin: 0 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            height: 70px;
+            position: relative;
+        }
         
-        .brand-wrapper { display: flex !important; align-items: center !important; gap: 10px; text-decoration: none; white-space: nowrap; margin-left: 20px; }
-        .nav-logo-img { height: 40px; width: auto; flex-shrink: 0; }
-        .brand-divider { width: 1.5px; height: 28px; background-color: rgba(255, 255, 255, 0.3); }
+        .brand-wrapper { display: flex !important; align-items: center !important; gap: 8px; text-decoration: none; white-space: nowrap; margin-left: 0; }
+        .nav-logo-img { height: 35px; width: auto; flex-shrink: 0; }
+        .brand-divider { width: 1px; height: 24px; background-color: rgba(255, 255, 255, 0.3); }
         
         .logo-text-group { display: flex; flex-direction: column; justify-content: center; }
-        .logo-title { color: #ffffff; font-weight: 800; font-size: 16px; text-transform: uppercase; line-height: 1; }
-        .logo-subtitle { color: #e67e22; font-weight: 500; font-size: 11px; line-height: 1; margin-top: 2px; }
+        .logo-title { color: #ffffff; font-weight: 800; font-size: 14px; text-transform: uppercase; line-height: 1; }
+        .logo-subtitle { color: #e67e22; font-weight: 500; font-size: 9px; line-height: 1; margin-top: 2px; }
 
         .nav-menu {
-            display: flex; align-items: center; gap: 25px; list-style: none;
-            padding: 8px 24px; position: absolute; left: 50%; transform: translateX(-50%); 
+            display: flex; align-items: center; gap: 20px; list-style: none;
+            padding: 6px 18px; position: absolute; left: 50%; transform: translateX(-50%); 
             background-color: rgba(255,255,255,0.05); border: 1px solid rgba(230,126,34,0.2); 
-            border-radius: 60px; backdrop-filter: blur(10px);
+            border-radius: 50px; backdrop-filter: blur(10px);
         }
-        .nav-link { position: relative; font-size: 13px; font-weight: 500; color: #fff; overflow: hidden; height: 20px; display: block; }
+        .nav-link { position: relative; font-size: 12px; font-weight: 500; color: #fff; overflow: hidden; height: 18px; display: block; }
         .link-text { display: block; transition: 0.4s transform cubic-bezier(0.76, 0, 0.24, 1); }
         .link-hover { position: absolute; top: 100%; left: 0; color: #e67e22; transition: 0.4s transform cubic-bezier(0.76, 0, 0.24, 1); }
         .nav-link:hover .link-text { transform: translateY(-100%); }
         .nav-link:hover .link-hover { transform: translateY(-100%); }
 
-        /* ======================================== */
-        /* GET STARTED BUTTON - MODERN ANIMATIONS  */
-        /* ======================================== */
+        /* GET STARTED BUTTON */
         .nav-button-cta { 
             background: linear-gradient(135deg, #e67e22, #f39c12, #e67e22);
             background-size: 200% 200%;
             color: white; 
             font-weight: 600; 
-            font-size: 13px;
-            padding: 8px 24px; 
-            border-radius: 60px;
+            font-size: 12px;
+            padding: 6px 18px; 
+            border-radius: 50px;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            margin-right: 50px;
+            margin-right: 0;
             border: none;
             position: relative;
             overflow: hidden;
             z-index: 1;
             cursor: pointer;
             animation: gradientShift 3s ease infinite;
-            box-shadow: 0 0 10px rgba(230,126,34,0.3);
+            box-shadow: 0 0 8px rgba(230,126,34,0.3);
         }
         
-        /* Gradient Animation */
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
         
-        /* Pulse Glow Animation */
         .nav-button-cta::before {
             content: '';
             position: absolute;
@@ -136,7 +152,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            border-radius: 60px;
+            border-radius: 50px;
             background: rgba(255,255,255,0.2);
             z-index: -1;
             transition: all 0.3s ease;
@@ -144,10 +160,9 @@
             transform: scale(0.8);
         }
         
-        /* Hover Effects */
         .nav-button-cta:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 25px rgba(230,126,34,0.5);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(230,126,34,0.5);
             animation: none;
             background: linear-gradient(135deg, #d35400, #e67e22);
         }
@@ -164,48 +179,39 @@
             100% { opacity: 0; transform: scale(1); }
         }
         
-        /* Click Ripple Effect */
-        .nav-button-cta::after {
+        .nav-button-cta:active::after {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 0;
-            height: 0;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             background: rgba(255,255,255,0.5);
             transform: translate(-50%, -50%);
-            transition: width 0.4s, height 0.4s;
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        .nav-button-cta:active::after {
-            width: 200px;
-            height: 200px;
             opacity: 1;
-            transition: 0s;
+            transition: width 0.2s, height 0.2s, opacity 0.2s;
         }
         
-        /* Icon Animation */
         .nav-button-cta i {
             transition: transform 0.3s ease;
-            margin-right: 6px;
+            margin-right: 5px;
+            font-size: 11px;
         }
         
         .nav-button-cta:hover i {
-            transform: translateX(5px) rotate(3deg);
+            transform: translateX(3px) rotate(3deg);
         }
         
-        .mobile-menu-btn { display: none; font-size: 22px; color: white; cursor: pointer; margin-right: 0; }
-        .mobile-menu { display: none; position: fixed; inset: 0; background: #000; z-index: 998; padding-top: 100px; text-align: center; flex-direction: column; gap: 25px; }
+        .mobile-menu-btn { display: none; font-size: 20px; color: white; cursor: pointer; margin-right: 0; background: none; border: none; }
+        .mobile-menu { display: none; position: fixed; inset: 0; background: #000; z-index: 998; padding-top: 80px; text-align: center; flex-direction: column; gap: 20px; }
         .mobile-menu.show { display: flex; }
 
         .whatsapp-float {
-            position: fixed; bottom: 25px; right: 25px; background-color: #25d366;
-            color: #FFF; border-radius: 50px; text-align: center; font-size: 28px;
+            position: fixed; bottom: 20px; right: 20px; background-color: #25d366;
+            color: #FFF; border-radius: 50px; text-align: center; font-size: 24px;
             box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); z-index: 1001;
-            width: 55px; height: 55px; display: flex; align-items: center; justify-content: center;
+            width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
             transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
         .whatsapp-float:hover { transform: scale(1.1) translateY(-5px); background-color: #128c7e; }
@@ -213,23 +219,23 @@
         section { display: block; width: 100%; }
         
         .stat-card { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); position: relative; overflow: hidden; cursor: pointer; }
-        .stat-card:hover { transform: translateY(-8px) scale(1.02); }
+        .stat-card:hover { transform: translateY(-5px) scale(1.02); }
         .stat-card:hover .stat-number { text-shadow: 0 0 15px rgba(230,126,34,0.5); letter-spacing: 1px; }
         .stat-card:hover .stat-icon { animation: iconPulse 0.6s ease infinite; }
         .stat-card:hover .stat-label { color: #fff; letter-spacing: 0.5px; }
         .stat-card::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, #e67e22, #ff9f4a); transition: all 0.4s ease; transform: translateX(-50%); }
         .stat-card:hover::after { width: 60%; }
         @keyframes iconPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
-        .stat-number { transition: all 0.3s ease; font-size: 2.5rem; font-weight: 800; }
-        .stat-icon { transition: all 0.3s ease; display: inline-block; }
-        .stat-label { transition: all 0.3s ease; font-size: 0.7rem; text-transform: uppercase; font-weight: 600; color: #000; }
+        .stat-number { transition: all 0.3s ease; font-size: 2rem; font-weight: 800; }
+        .stat-icon { transition: all 0.3s ease; display: inline-block; font-size: 1.5rem; }
+        .stat-label { transition: all 0.3s ease; font-size: 0.65rem; text-transform: uppercase; font-weight: 600; color: #000; }
         
-        .flip-card { background-color: transparent; width: 100%; height: 280px; perspective: 1000px; cursor: pointer; }
+        .flip-card { background-color: transparent; width: 100%; height: 260px; perspective: 1000px; cursor: pointer; }
         .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); transform-style: preserve-3d; }
         .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
         .flip-card-front, .flip-card-back {
             position: absolute; width: 100%; height: 100%; backface-visibility: hidden;
-            border-radius: 0.75rem; padding: 0.875rem;
+            border-radius: 0.75rem; padding: 0.75rem;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             background-color: #000; border: 1px solid rgba(255,255,255,0.08);
             transition: all 0.3s ease;
@@ -245,46 +251,46 @@
         .flip-card-back::-webkit-scrollbar-thumb { background: #e67e22; border-radius: 10px; }
         
         .flip-card-front { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
-        .flip-card:hover .flip-card-front { box-shadow: 0 20px 30px -12px rgba(230, 126, 34, 0.4), 0 0 0 1px rgba(230, 126, 34, 0.3); transform: translateY(-5px); }
-        .flip-card:hover .flip-card-front i { transform: scale(1.1) rotate(3deg); text-shadow: 0 0 12px rgba(230,126,34,0.5); }
-        .flip-card:hover .flip-card-front h3 { font-size: 1rem; letter-spacing: 0.3px; color: #e67e22; }
-        .flip-card:hover .flip-card-front .front-desc { font-size: 0.65rem; color: #d1d5db; }
+        .flip-card:hover .flip-card-front { box-shadow: 0 15px 25px -10px rgba(230, 126, 34, 0.4), 0 0 0 1px rgba(230, 126, 34, 0.3); transform: translateY(-3px); }
+        .flip-card:hover .flip-card-front i { transform: scale(1.05) rotate(3deg); text-shadow: 0 0 10px rgba(230,126,34,0.5); }
+        .flip-card:hover .flip-card-front h3 { font-size: 0.9rem; letter-spacing: 0.3px; color: #e67e22; }
+        .flip-card:hover .flip-card-front .front-desc { font-size: 0.6rem; color: #d1d5db; }
         .flip-card:hover .flip-card-front .click-me-btn { border-color: #e67e22; background: rgba(230,126,34,0.15); transform: scale(1.02); }
         
-        .flip-card-front i { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); display: inline-block; }
-        .flip-card-front h3 { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); font-size: 1rem; }
-        .flip-card-front .front-desc { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); font-size: 0.65rem; color: #6b7280; margin-top: 6px; text-align: center; }
+        .flip-card-front i { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); display: inline-block; font-size: 2rem; }
+        .flip-card-front h3 { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); font-size: 0.9rem; margin-top: 5px; }
+        .flip-card-front .front-desc { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); font-size: 0.6rem; color: #6b7280; margin-top: 5px; text-align: center; }
         
         .click-me-btn {
             background: transparent; border: 1px solid rgba(230,126,34,0.4);
-            color: #e67e22; padding: 5px 14px; border-radius: 30px;
-            font-size: 10px; font-weight: 500; margin-top: 12px;
+            color: #e67e22; padding: 4px 12px; border-radius: 30px;
+            font-size: 9px; font-weight: 500; margin-top: 10px;
             transition: all 0.3s ease; cursor: pointer;
         }
         .click-me-btn:hover { background: rgba(230,126,34,0.15); border-color: #e67e22; transform: scale(1.02); }
         
         .quote-btn {
-            background-color: #e67e22; color: white; padding: 6px 16px;
-            border-radius: 30px; font-size: 12px; font-weight: 500;
+            background-color: #e67e22; color: white; padding: 5px 12px;
+            border-radius: 30px; font-size: 10px; font-weight: 500;
             text-decoration: none; transition: all 0.3s ease;
-            display: inline-block; margin-top: 12px; text-align: center;
+            display: inline-block; margin-top: 10px; text-align: center;
         }
         .quote-btn:hover { background-color: #d35400; transform: translateY(-2px); box-shadow: 0 5px 12px rgba(230,126,34,0.3); }
         
-        .back-course-list { width: 100%; margin-top: 8px; }
+        .back-course-list { width: 100%; margin-top: 6px; }
         .back-course-item {
-            transition: all 0.3s ease; font-size: 0.7rem;
-            padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex; align-items: center; gap: 6px;
+            transition: all 0.3s ease; font-size: 0.65rem;
+            padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex; align-items: center; gap: 5px;
         }
-        .back-course-item:hover { color: #e67e22; transform: translateX(4px); border-bottom-color: rgba(230,126,34,0.3); }
-        .back-course-item i { font-size: 0.6rem; color: #e67e22; }
+        .back-course-item:hover { color: #e67e22; transform: translateX(3px); border-bottom-color: rgba(230,126,34,0.3); }
+        .back-course-item i { font-size: 0.55rem; color: #e67e22; }
         
         /* Project Flip Cards */
         .project-flip-card {
             background-color: transparent;
             width: 100%;
-            height: 300px;
+            height: 280px;
             perspective: 1000px;
             cursor: pointer;
         }
@@ -308,7 +314,7 @@
             height: 100%;
             backface-visibility: hidden;
             border-radius: 0.75rem;
-            padding: 1rem;
+            padding: 0.75rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -346,23 +352,23 @@
         .project-flip-card-front i {
             transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             display: inline-block;
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
         
         .project-flip-card-front h3 {
             transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            font-size: 1.25rem;
-            margin-top: 1rem;
+            font-size: 1rem;
+            margin-top: 0.75rem;
         }
         
         .project-flip-card:hover .project-flip-card-front {
-            box-shadow: 0 20px 30px -12px rgba(230, 126, 34, 0.4), 0 0 0 1px rgba(230, 126, 34, 0.3);
-            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -10px rgba(230, 126, 34, 0.4), 0 0 0 1px rgba(230, 126, 34, 0.3);
+            transform: translateY(-3px);
         }
         
         .project-flip-card:hover .project-flip-card-front i {
-            transform: scale(1.1) rotate(3deg);
-            text-shadow: 0 0 12px rgba(230,126,34,0.5);
+            transform: scale(1.05) rotate(3deg);
+            text-shadow: 0 0 10px rgba(230,126,34,0.5);
         }
         
         .project-flip-card:hover .project-flip-card-front h3 {
@@ -373,11 +379,11 @@
             background: transparent;
             border: 1px solid rgba(230,126,34,0.4);
             color: #e67e22;
-            padding: 6px 18px;
+            padding: 4px 14px;
             border-radius: 30px;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 500;
-            margin-top: 18px;
+            margin-top: 12px;
             transition: all 0.3s ease;
             cursor: pointer;
         }
@@ -385,28 +391,28 @@
         .project-flip-card:hover .project-get-more-btn {
             border-color: #e67e22;
             background: rgba(230,126,34,0.15);
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
         
         .project-image-back {
             width: 100%;
-            height: 120px;
+            height: 100px;
             object-fit: cover;
             border-radius: 0.5rem;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         
         .project-demo-btn-back {
             background-color: #e67e22;
             color: white;
-            padding: 6px 16px;
+            padding: 4px 12px;
             border-radius: 30px;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 500;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-block;
-            margin-top: 12px;
+            margin-top: 8px;
         }
         
         .project-demo-btn-back:hover {
@@ -414,58 +420,43 @@
             transform: translateY(-2px);
         }
         
-        .hidden-project-flip {
-            display: none;
-        }
-        
-        .projects-btn {
-            transition: all 0.3s ease;
-        }
-        .projects-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(230,126,34,0.3);
-        }
+        .hidden-project-flip { display: none; }
+        .projects-btn { transition: all 0.3s ease; font-size: 13px; padding: 8px 20px; }
+        .projects-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(230,126,34,0.3); }
         
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         @keyframes fadeOutDown {
             from { opacity: 1; transform: translateY(0); }
-            to { opacity: 0; transform: translateY(30px); }
+            to { opacity: 0; transform: translateY(20px); }
         }
-        .project-item.show-animation {
-            animation: fadeInUp 0.5s ease forwards;
-            display: block !important;
-        }
-        .project-item.hide-animation {
-            animation: fadeOutDown 0.4s ease forwards;
-        }
+        .project-item.show-animation { animation: fadeInUp 0.4s ease forwards; display: block !important; }
+        .project-item.hide-animation { animation: fadeOutDown 0.3s ease forwards; }
         
-        /* ======================================== */
-        /* REVIEW MARQUEE STYLES */
-        /* ======================================== */
+        /* MARQUEE STYLES */
         .marquee-container {
             width: 100%;
             overflow: hidden;
             position: relative;
             background: linear-gradient(135deg, #0a0a0a 0%, #000000 100%);
             border-radius: 1rem;
-            padding: 1rem 0;
+            padding: 0.75rem 0;
             border: 1px solid rgba(255,255,255,0.08);
         }
         
         .marquee-row-left-to-right {
             display: flex;
             width: fit-content;
-            animation: marqueeLeftToRight 30s linear infinite;
-            margin-bottom: 1rem;
+            animation: marqueeLeftToRight 25s linear infinite;
+            margin-bottom: 0.75rem;
         }
         
         .marquee-row-right-to-left {
             display: flex;
             width: fit-content;
-            animation: marqueeRightToLeft 30s linear infinite;
+            animation: marqueeRightToLeft 25s linear infinite;
         }
         
         .marquee-row-left-to-right:hover,
@@ -485,9 +476,9 @@
         
         .review-card {
             flex-shrink: 0;
-            width: 380px;
-            margin: 0 15px;
-            padding: 1.5rem;
+            width: 300px;
+            margin: 0 12px;
+            padding: 1rem;
             background: rgba(0,0,0,0.5);
             border-radius: 0.75rem;
             border-left: 3px solid #e67e22;
@@ -495,38 +486,31 @@
         }
         
         .review-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             background: rgba(0,0,0,0.8);
             border-color: #d35400;
         }
         
         .review-text {
-            font-size: 0.85rem;
-            line-height: 1.5;
+            font-size: 0.75rem;
+            line-height: 1.4;
             color: #d1d5db;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
         
         .review-name {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: #e67e22;
         }
         
         .review-title {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #6b7280;
         }
         
-        .stars {
-            margin-bottom: 0.75rem;
-        }
-        
-        .stars i {
-            font-size: 0.7rem;
-            color: #fbbf24;
-            margin-right: 2px;
-        }
+        .stars { margin-bottom: 0.5rem; }
+        .stars i { font-size: 0.6rem; color: #fbbf24; margin-right: 2px; }
         
         /* Review Modal */
         .review-modal {
@@ -536,7 +520,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.95);
             z-index: 2000;
             justify-content: center;
             align-items: center;
@@ -547,9 +531,9 @@
             background: linear-gradient(135deg, #0a0a0a 0%, #000000 100%);
             border: 1px solid rgba(230,126,34,0.3);
             border-radius: 1rem;
-            padding: 2rem;
-            max-width: 500px;
-            width: 90%;
+            padding: 1.5rem;
+            max-width: 90%;
+            width: 400px;
             position: relative;
             animation: modalFadeIn 0.3s ease;
         }
@@ -559,46 +543,48 @@
         }
         .close-modal {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 24px;
+            top: 12px;
+            right: 15px;
+            font-size: 22px;
             cursor: pointer;
             color: #e67e22;
             transition: all 0.3s ease;
         }
         .close-modal:hover { color: #d35400; transform: scale(1.1); }
-        .rating-stars { display: flex; gap: 8px; justify-content: center; margin-bottom: 20px; }
-        .rating-star { font-size: 30px; cursor: pointer; color: #4b5563; transition: all 0.2s ease; }
+        .rating-stars { display: flex; gap: 8px; justify-content: center; margin-bottom: 15px; }
+        .rating-star { font-size: 25px; cursor: pointer; color: #4b5563; transition: all 0.2s ease; }
         .rating-star:hover, .rating-star.active { color: #fbbf24; transform: scale(1.1); }
         .review-input {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             background: #111;
             border: 1px solid rgba(230,126,34,0.2);
             border-radius: 8px;
             color: white;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             outline: none;
             transition: all 0.3s ease;
+            font-size: 13px;
         }
         .review-input:focus { border-color: #e67e22; box-shadow: 0 0 8px rgba(230,126,34,0.2); }
-        textarea.review-input { resize: vertical; min-height: 100px; }
+        textarea.review-input { resize: vertical; min-height: 80px; }
         .submit-review-btn {
             width: 100%;
             background: #e67e22;
             color: white;
-            padding: 12px;
+            padding: 10px;
             border: none;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 13px;
         }
         .submit-review-btn:hover { background: #d35400; transform: translateY(-2px); }
         .write-review-btn {
             background: linear-gradient(135deg, #e67e22, #d35400);
             color: white;
-            padding: 12px 28px;
+            padding: 8px 20px;
             border-radius: 40px;
             font-weight: 600;
             border: none;
@@ -606,47 +592,48 @@
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 8px;
+            margin-bottom: 15px;
+            font-size: 13px;
         }
-        .write-review-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(230,126,34,0.3); }
+        .write-review-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 15px rgba(230,126,34,0.3); }
         
         .faq-item { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); cursor: pointer; }
-        .faq-item:hover { transform: translateY(-2px); box-shadow: 0 12px 25px -10px rgba(230, 126, 34, 0.25); border: 1px solid rgba(230,126,34,0.3); }
+        .faq-item:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -8px rgba(230, 126, 34, 0.25); border: 1px solid rgba(230,126,34,0.3); }
         .faq-item:hover .faq-question { color: #e67e22; }
-        .faq-question { transition: all 0.3s ease; font-size: 0.9rem; }
+        .faq-question { transition: all 0.3s ease; font-size: 0.85rem; }
         
-        .contact-info-item { transition: all 0.3s ease; display: flex; align-items: center; gap: 10px; }
-        .contact-info-item:hover { transform: translateX(6px); }
+        .contact-info-item { transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; font-size: 0.8rem; }
+        .contact-info-item:hover { transform: translateX(5px); }
         .contact-info-item:hover i { transform: scale(1.1); color: #e67e22; }
-        .contact-info-item i { transition: all 0.3s ease; width: 20px; font-size: 0.9rem; }
-        .contact-info-item span { transition: all 0.3s ease; font-size: 0.85rem; }
+        .contact-info-item i { transition: all 0.3s ease; width: 20px; font-size: 0.85rem; }
+        .contact-info-item span { transition: all 0.3s ease; }
         .contact-info-item:hover span { color: white; }
         
         .contact-form-card { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
-        .contact-form-card:hover { transform: translateY(-4px); box-shadow: 0 20px 35px -12px rgba(230, 126, 34, 0.3); border-color: rgba(230,126,34,0.4); }
+        .contact-form-card:hover { transform: translateY(-3px); box-shadow: 0 15px 30px -10px rgba(230, 126, 34, 0.3); border-color: rgba(230,126,34,0.4); }
         .form-input {
-            background: #111; border: 1px solid rgba(255,255,255,0.1); padding: 10px;
+            background: #111; border: 1px solid rgba(255,255,255,0.1); padding: 8px;
             border-radius: 8px; width: 100%; color: white; outline: none; font-size: 12px;
             transition: all 0.3s ease;
         }
         .form-input:focus { border-color: #e67e22; box-shadow: 0 0 8px rgba(230,126,34,0.2); transform: scale(1.01); }
         .form-input:hover { border-color: rgba(230,126,34,0.4); }
-        .submit-btn { transition: all 0.3s ease; cursor: pointer; font-size: 13px; padding: 10px; }
-        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px -6px rgba(230,126,34,0.5); }
+        .submit-btn { transition: all 0.3s ease; cursor: pointer; font-size: 13px; padding: 8px; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 15px -6px rgba(230,126,34,0.5); }
         
         /* Footer Styles */
         .footer-link-custom {
             transition: all 0.3s ease;
             display: inline-block;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #9ca3af;
         }
-        .footer-link-custom:hover { color: #e67e22; transform: translateX(4px); }
+        .footer-link-custom:hover { color: #e67e22; transform: translateX(3px); }
         
         .social-icon {
-            width: 35px;
-            height: 35px;
+            width: 32px;
+            height: 32px;
             background: rgba(255,255,255,0.05);
             border-radius: 50%;
             display: flex;
@@ -654,6 +641,7 @@
             justify-content: center;
             transition: all 0.3s ease;
             color: #9ca3af;
+            font-size: 14px;
         }
         .social-icon:hover {
             background: #e67e22;
@@ -665,10 +653,11 @@
             background: #111;
             border: 1px solid rgba(230,126,34,0.2);
             border-radius: 8px;
-            padding: 10px 15px;
+            padding: 8px 12px;
             color: white;
             outline: none;
             transition: all 0.3s ease;
+            font-size: 11px;
         }
         .newsletter-input:focus {
             border-color: #e67e22;
@@ -678,11 +667,12 @@
             background: #e67e22;
             border: none;
             border-radius: 8px;
-            padding: 10px 20px;
+            padding: 8px 15px;
             color: white;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 11px;
         }
         .newsletter-btn:hover {
             background: #d35400;
@@ -692,24 +682,73 @@
         .footer-logo { transition: all 0.3s ease; }
         .footer-logo:hover { opacity: 0.9; transform: scale(1.01); }
         
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; color: #aaa; font-size: 0.75rem; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; color: #aaa; font-size: 0.7rem; }
         .faq-answer.show { max-height: 100px; padding-top: 8px; }
 
+        /* =========== MOBILE RESPONSIVE FIXES =========== */
         @media (max-width: 1100px) { 
             .nav-menu { display: none; } 
             .mobile-menu-btn { display: block; } 
             .nav-button-cta { display: none !important; }
             .brand-wrapper { margin-left: 0; }
         }
+        
         @media (max-width: 768px) {
-            .nav-container { margin: 0 20px; }
+            .nav-container { margin: 0 15px; height: 65px; }
             .brand-wrapper { margin-left: 0; }
-            .flip-card { height: 300px; }
-            .stat-number { font-size: 1.8rem; }
-            .project-flip-card { height: 320px; }
-            .review-card { width: 300px; padding: 1rem; }
-            .review-modal-content { padding: 1.5rem; margin: 20px; }
-            .back-to-top { bottom: 70px; }
+            .nav-logo-img { height: 32px; }
+            .logo-title { font-size: 12px; }
+            .logo-subtitle { font-size: 8px; }
+            
+            .flip-card { height: 280px; }
+            .project-flip-card { height: 290px; }
+            .stat-number { font-size: 1.6rem; }
+            .stat-icon { font-size: 1.3rem; }
+            .project-image-back { height: 90px; }
+            
+            .review-card { width: 260px; padding: 0.85rem; }
+            .review-text { font-size: 0.7rem; }
+            
+            .grid { gap: 1rem; }
+            .py-10 { padding-top: 2rem; padding-bottom: 2rem; }
+            .py-12 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+            .py-16 { padding-top: 3rem; padding-bottom: 3rem; }
+            
+            h1 { font-size: 2.5rem !important; }
+            h2 { font-size: 1.8rem !important; }
+            
+            .contact-info-item { font-size: 0.75rem; }
+            .footer-link-custom { font-size: 0.65rem; }
+            .social-icon { width: 28px; height: 28px; font-size: 12px; }
+            
+            .marquee-container { padding: 0.5rem 0; }
+            .marquee-row-left-to-right { animation-duration: 20s; }
+            .marquee-row-right-to-left { animation-duration: 20s; }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-container { margin: 0 12px; }
+            .nav-logo-img { height: 28px; }
+            .logo-title { font-size: 10px; }
+            
+            h1 { font-size: 1.8rem !important; }
+            h2 { font-size: 1.5rem !important; }
+            p { font-size: 0.8rem; }
+            
+            .stat-number { font-size: 1.3rem; }
+            .stat-label { font-size: 0.55rem; }
+            
+            .flip-card { height: 260px; }
+            .project-flip-card { height: 270px; }
+            .review-card { width: 240px; }
+            
+            .btn-primary-custom, .btn-outline-custom { padding: 8px 20px; font-size: 0.8rem; }
+            
+            .contact-form-card { padding: 1rem; }
+            .form-input { padding: 6px; font-size: 11px; }
+            
+            .footer-logo img { height: 25px; }
+            .social-icon { width: 25px; height: 25px; font-size: 11px; }
         }
     </style>
 </head>
@@ -745,7 +784,6 @@
             <li><a href="#contact" class="nav-link"><span class="link-text">Contact</span><span class="link-hover">Contact</span></a></li>
         </ul>
         <div class="flex items-center gap-3" id="btnAnim">
-            <!-- Modern Animated Get Started Button -->
             <a href="https://wa.me/923002457241" class="nav-button-cta">
                 <i class="fas fa-rocket"></i> Get Started
             </a>
@@ -755,209 +793,125 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-    <a href="#" class="text-2xl font-bold">Home</a>
-    <a href="#services" class="text-2xl font-bold">Services</a>
-    <a href="#projects" class="text-2xl font-bold">Projects</a>
-    <a href="#courses" class="text-2xl font-bold">Courses</a>
-    <a href="#testimonials" class="text-2xl font-bold">Success</a>
-    <a href="#contact" class="text-2xl font-bold">Contact</a>
-    <a href="https://wa.me/923002457241" class="bg-orange-500 px-6 py-3 rounded-xl text-lg font-bold mt-6 mx-8">Get Started</a>
+    <a href="#" class="text-xl font-bold">Home</a>
+    <a href="#services" class="text-xl font-bold">Services</a>
+    <a href="#projects" class="text-xl font-bold">Projects</a>
+    <a href="#courses" class="text-xl font-bold">Courses</a>
+    <a href="#testimonials" class="text-xl font-bold">Success</a>
+    <a href="#contact" class="text-xl font-bold">Contact</a>
+    <a href="https://wa.me/923002457241" class="bg-orange-500 px-5 py-2 rounded-xl text-base font-bold mt-5 mx-8">Get Started</a>
 </div>
 
 <!-- Hero Section -->
-<section class="h-screen flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070')] bg-cover bg-center bg-no-repeat relative">
+<section class="min-h-screen flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070')] bg-cover bg-center bg-no-repeat relative py-20">
     <div class="absolute inset-0 bg-black/70"></div>
-    <div class="relative max-w-4xl mx-auto px-6 text-center" data-aos="fade-up">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-5 leading-tight">Master <span class="text-orange-500">Soft Skills</span><br>Build Your Legacy</h1>
-        <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto">Active leadership and professional communication training designed for the high-performing corporate elite.</p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#courses" class="bg-orange-500 px-10 py-4 rounded-xl font-bold text-white text-base transition-all hover:scale-105 shadow-lg shadow-orange-500/20">Find Programs</a>
-            <a href="#contact" class="border-2 border-white px-10 py-4 rounded-xl font-bold text-white text-base hover:bg-white hover:text-black transition-all">Request Demo</a>
+    <div class="relative max-w-4xl mx-auto px-4 text-center" data-aos="fade-up">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight">Master <span class="text-orange-500">Soft Skills</span><br>Build Your Legacy</h1>
+        <p class="text-gray-300 text-base md:text-xl mb-6 max-w-2xl mx-auto">Active leadership and professional communication training designed for the high-performing corporate elite.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-3">
+            <a href="#courses" class="bg-orange-500 px-6 py-3 rounded-xl font-bold text-white text-sm md:text-base transition-all hover:scale-105 shadow-lg shadow-orange-500/20">Find Programs</a>
+            <a href="#contact" class="border-2 border-white px-6 py-3 rounded-xl font-bold text-white text-sm md:text-base hover:bg-white hover:text-black transition-all">Request Demo</a>
         </div>
     </div>
 </section>
 
 <!-- Stats Bar -->
-<section class="py-10 bg-orange-500">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="stat-card" data-target="1500" data-suffix="+" data-prefix=""><div class="text-white mb-2"><i class="fas fa-users text-2xl stat-icon"></i></div><h2 class="stat-number text-4xl font-extrabold text-white">0</h2><p class="stat-label text-xs uppercase font-bold text-black mt-1">Trained Leaders</p></div>
-            <div class="stat-card" data-target="98" data-suffix="%" data-prefix=""><div class="text-white mb-2"><i class="fas fa-chart-line text-2xl stat-icon"></i></div><h2 class="stat-number text-4xl font-extrabold text-white">0</h2><p class="stat-label text-xs uppercase font-bold text-black mt-1">Success Rate</p></div>
-            <div class="stat-card" data-target="50" data-suffix="+" data-prefix=""><div class="text-white mb-2"><i class="fas fa-building text-2xl stat-icon"></i></div><h2 class="stat-number text-4xl font-extrabold text-white">0</h2><p class="stat-label text-xs uppercase font-bold text-black mt-1">Corporate Partners</p></div>
-            <div class="stat-card" data-target="12" data-suffix="+" data-prefix=""><div class="text-white mb-2"><i class="fas fa-trophy text-2xl stat-icon"></i></div><h2 class="stat-number text-4xl font-extrabold text-white">0</h2><p class="stat-label text-xs uppercase font-bold text-black mt-1">Industry Awards</p></div>
+<section class="py-8 bg-orange-500">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="stat-card" data-target="1500" data-suffix="+" data-prefix=""><div class="text-white mb-1"><i class="fas fa-users text-xl stat-icon"></i></div><h2 class="stat-number text-3xl font-extrabold text-white">0</h2><p class="stat-label text-[0.6rem] uppercase font-bold text-black mt-1">Trained Leaders</p></div>
+            <div class="stat-card" data-target="98" data-suffix="%" data-prefix=""><div class="text-white mb-1"><i class="fas fa-chart-line text-xl stat-icon"></i></div><h2 class="stat-number text-3xl font-extrabold text-white">0</h2><p class="stat-label text-[0.6rem] uppercase font-bold text-black mt-1">Success Rate</p></div>
+            <div class="stat-card" data-target="50" data-suffix="+" data-prefix=""><div class="text-white mb-1"><i class="fas fa-building text-xl stat-icon"></i></div><h2 class="stat-number text-3xl font-extrabold text-white">0</h2><p class="stat-label text-[0.6rem] uppercase font-bold text-black mt-1">Corporate Partners</p></div>
+            <div class="stat-card" data-target="12" data-suffix="+" data-prefix=""><div class="text-white mb-1"><i class="fas fa-trophy text-xl stat-icon"></i></div><h2 class="stat-number text-3xl font-extrabold text-white">0</h2><p class="stat-label text-[0.6rem] uppercase font-bold text-black mt-1">Industry Awards</p></div>
         </div>
     </div>
 </section>
 
 <!-- Core Solutions Section -->
 <section id="services" class="py-10 bg-[#0a0a0a]">
-    <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-center text-3xl md:text-4xl font-bold mb-3" data-aos="fade-down">Core <span class="text-orange-500">Solutions</span></h2>
-        <p class="text-center text-gray-400 text-sm max-w-2xl mx-auto mb-6" data-aos="fade-up" data-aos-delay="100">We provide end-to-end digital, marketing, and IT solutions designed to help businesses grow, scale, and dominate their market</p>
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-center text-2xl md:text-4xl font-bold mb-2" data-aos="fade-down">Core <span class="text-orange-500">Solutions</span></h2>
+        <p class="text-center text-gray-400 text-xs md:text-sm max-w-2xl mx-auto mb-6" data-aos="fade-up" data-aos-delay="100">We provide end-to-end digital, marketing, and IT solutions designed to help businesses grow, scale, and dominate their market</p>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-            <div class="flip-card" data-card="1"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-chalkboard-user text-orange-500 text-3xl mb-2"></i><h3 class="text-base font-bold mb-1">Soft Skills & Leadership</h3><p class="front-desc">Empowering Professional Excellence</p><button class="click-me-btn">Get More</button></div><div class="flip-card-back"><i class="fas fa-chalkboard-user text-orange-500 text-xl mb-1"></i><h3 class="text-sm font-bold mb-1 text-center">Soft Skills & Leadership</h3><p class="text-gray-400 text-[0.7rem] text-center">Structured training programs focused on communication, leadership, teamwork, and workplace performance.</p><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Soft%20Skills%20%26%20Leadership%20Development%20course" class="quote-btn" target="_blank">Get Free Quotation →</a></div></div></div>
-            <div class="flip-card" data-card="2"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-building text-orange-500 text-3xl mb-2"></i><h3 class="text-base font-bold mb-1">Corporate Training</h3><p class="front-desc">Customized Organizational Development</p><button class="click-me-btn">Get More</button></div><div class="flip-card-back"><i class="fas fa-building text-orange-500 text-xl mb-1"></i><h3 class="text-sm font-bold mb-1 text-center">Corporate Training Programs</h3><p class="text-gray-400 text-[0.7rem] text-center">Results-driven corporate training programs tailored for companies, institutions, and professional teams.</p><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Corporate%20Training%20Programs" class="quote-btn" target="_blank">Get Free Quotation →</a></div></div></div>
-            <div class="flip-card" data-card="3"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-chart-line text-orange-500 text-3xl mb-2"></i><h3 class="text-base font-bold mb-1">Digital Marketing</h3><p class="front-desc">Performance-Driven Solutions</p><button class="click-me-btn">Get More</button></div><div class="flip-card-back"><i class="fas fa-chart-line text-orange-500 text-xl mb-1"></i><h3 class="text-sm font-bold mb-1 text-center">Digital Marketing & Growth</h3><p class="text-gray-400 text-[0.7rem] text-center">Complete digital marketing services including paid advertising, SEO, branding, and lead generation.</p><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Digital%20Marketing%20Services" class="quote-btn" target="_blank">Get Free Quotation →</a></div></div></div>
-            <div class="flip-card" data-card="4"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-laptop-code text-orange-500 text-3xl mb-2"></i><h3 class="text-base font-bold mb-1">IT & Ecommerce</h3><p class="front-desc">Technology That Powers Growth</p><button class="click-me-btn">Get More</button></div><div class="flip-card-back"><i class="fas fa-laptop-code text-orange-500 text-xl mb-1"></i><h3 class="text-sm font-bold mb-1 text-center">IT & Ecommerce Solutions</h3><p class="text-gray-400 text-[0.7rem] text-center">Professional IT services, software development, and ecommerce solutions to scale modern businesses.</p><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20IT%20%26%20Ecommerce%20Solutions" class="quote-btn" target="_blank">Get Free Quotation →</a></div></div></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div class="flip-card" data-card="1"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-chalkboard-user text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">Soft Skills & Leadership</h3><p class="front-desc text-xs">Empowering Professional Excellence</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-chalkboard-user text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">Soft Skills & Leadership</h3><p class="text-gray-400 text-[0.6rem] text-center">Structured training programs focused on communication, leadership, teamwork, and workplace performance.</p><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Soft%20Skills%20%26%20Leadership%20Development%20course" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
+            <div class="flip-card" data-card="2"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-building text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">Corporate Training</h3><p class="front-desc text-xs">Customized Organizational Development</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-building text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">Corporate Training Programs</h3><p class="text-gray-400 text-[0.6rem] text-center">Results-driven corporate training programs tailored for companies, institutions, and professional teams.</p><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Corporate%20Training%20Programs" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
+            <div class="flip-card" data-card="3"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-chart-line text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">Digital Marketing</h3><p class="front-desc text-xs">Performance-Driven Solutions</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-chart-line text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">Digital Marketing & Growth</h3><p class="text-gray-400 text-[0.6rem] text-center">Complete digital marketing services including paid advertising, SEO, branding, and lead generation.</p><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Digital%20Marketing%20Services" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
+            <div class="flip-card" data-card="4"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-laptop-code text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">IT & Ecommerce</h3><p class="front-desc text-xs">Technology That Powers Growth</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-laptop-code text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">IT & Ecommerce Solutions</h3><p class="text-gray-400 text-[0.6rem] text-center">Professional IT services, software development, and ecommerce solutions to scale modern businesses.</p><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20IT%20%26%20Ecommerce%20Solutions" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
         </div>
     </div>
 </section>
 
 <!-- Projects Section -->
 <section id="projects" class="py-10 bg-black">
-    <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-center text-3xl md:text-4xl font-bold mb-3" data-aos="fade-down">Our <span class="text-orange-500">Projects</span></h2>
-        <p class="text-center text-gray-400 text-sm max-w-2xl mx-auto mb-6" data-aos="fade-up" data-aos-delay="100">Showcasing our successful deliveries • 50+ completed projects worldwide</p>
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-center text-2xl md:text-4xl font-bold mb-2" data-aos="fade-down">Our <span class="text-orange-500">Projects</span></h2>
+        <p class="text-center text-gray-400 text-xs md:text-sm max-w-2xl mx-auto mb-6" data-aos="fade-up" data-aos-delay="100">Showcasing our successful deliveries • 50+ completed projects worldwide</p>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 projects-grid" id="projectsContainer">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 projects-grid" id="projectsContainer">
             
-            <!-- Project 1 - Zeetech Website (VISIBLE) -->
-            <div class="project-flip-card project-item" data-project="1">
-                <div class="project-flip-card-inner">
-                    <div class="project-flip-card-front">
-                        <i class="fas fa-globe"></i>
-                        <h3>Zeetech Website</h3>
-                        <button class="project-get-more-btn">Get More</button>
-                    </div>
-                    <div class="project-flip-card-back">
-                        <img src="image/zeetech.png" alt="Zeetech Website" class="project-image-back">
-                        <p class="text-gray-400 text-xs mt-2">Complete corporate website for Zeetech Technical Services with modern design and responsive layout.</p>
-                        <a href="https://zeetech26.com/" target="_blank" rel="noopener noreferrer" class="project-demo-btn-back">Live Demo →</a>
-                    </div>
-                </div>
-            </div>
+            <div class="project-flip-card project-item" data-project="1"><div class="project-flip-card-inner"><div class="project-flip-card-front"><i class="fas fa-globe"></i><h3 class="text-base">Zeetech Website</h3><button class="project-get-more-btn">Get More</button></div><div class="project-flip-card-back"><img src="image/zeetech.png" alt="Zeetech Website" class="project-image-back" onerror="this.src='https://placehold.co/400x160/1a1a2e/e67e22?text=Zeetech+Website'"><p class="text-gray-400 text-[0.65rem] mt-1">Complete corporate website for Zeetech Technical Services.</p><a href="https://zeetech26.com/" target="_blank" rel="noopener noreferrer" class="project-demo-btn-back text-[9px]">Live Demo →</a></div></div></div>
             
-            <!-- Project 2 - Zeetech Mobile App (VISIBLE) -->
-            <div class="project-flip-card project-item" data-project="2">
-                <div class="project-flip-card-inner">
-                    <div class="project-flip-card-front">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h3>Zeetech Mobile App</h3>
-                        <button class="project-get-more-btn">Get More</button>
-                    </div>
-                    <div class="project-flip-card-back">
-                        <img src="https://placehold.co/400x160/1a1a2e/e67e22?text=Zeetech+Mobile+App" alt="Zeetech Mobile App" class="project-image-back">
-                        <p class="text-gray-400 text-xs mt-2">Cross-platform mobile app for Zeetech Technical Services. Coming soon!</p>
-                        <a href="#" class="project-demo-btn-back">Coming Soon →</a>
-                    </div>
-                </div>
-            </div>
+            <div class="project-flip-card project-item" data-project="2"><div class="project-flip-card-inner"><div class="project-flip-card-front"><i class="fas fa-mobile-alt"></i><h3 class="text-base">Zeetech Mobile App</h3><button class="project-get-more-btn">Get More</button></div><div class="project-flip-card-back"><img src="https://placehold.co/400x160/1a1a2e/e67e22?text=Zeetech+Mobile+App" alt="Zeetech Mobile App" class="project-image-back"><p class="text-gray-400 text-[0.65rem] mt-1">Cross-platform mobile app for Zeetech. Coming soon!</p><a href="#" class="project-demo-btn-back text-[9px]">Coming Soon →</a></div></div></div>
             
-            <!-- Project 3 - Zeetech Social Media (VISIBLE) -->
-            <div class="project-flip-card project-item" data-project="3">
-                <div class="project-flip-card-inner">
-                    <div class="project-flip-card-front">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Zeetech Social Media</h3>
-                        <button class="project-get-more-btn">Get More</button>
-                    </div>
-                    <div class="project-flip-card-back">
-                        <img src="https://placehold.co/400x160/1a1a2e/e67e22?text=Zeetech+SMM" alt="Zeetech Social Media" class="project-image-back">
-                        <p class="text-gray-400 text-xs mt-2">Complete social media management for Zeetech Technical Services including content creation, scheduling, and engagement.</p>
-                        <a href="#" class="project-demo-btn-back">View Results →</a>
-                    </div>
-                </div>
-            </div>
+            <div class="project-flip-card project-item" data-project="3"><div class="project-flip-card-inner"><div class="project-flip-card-front"><i class="fas fa-chart-line"></i><h3 class="text-base">Zeetech Social Media</h3><button class="project-get-more-btn">Get More</button></div><div class="project-flip-card-back"><img src="https://placehold.co/400x160/1a1a2e/e67e22?text=Zeetech+SMM" alt="Zeetech Social Media" class="project-image-back"><p class="text-gray-400 text-[0.65rem] mt-1">Complete social media management for Zeetech.</p><a href="#" class="project-demo-btn-back text-[9px]">View Results →</a></div></div></div>
             
-            <!-- Project 4 - E-Commerce Platform (HIDDEN) -->
-            <div class="project-flip-card project-item hidden-project-flip" data-project="4">
-                <div class="project-flip-card-inner">
-                    <div class="project-flip-card-front">
-                        <i class="fas fa-shopping-cart"></i>
-                        <h3>E-Commerce Platform</h3>
-                        <button class="project-get-more-btn">Get More</button>
-                    </div>
-                    <div class="project-flip-card-back">
-                        <img src="https://placehold.co/400x160/1a1a2e/e67e22?text=E-Commerce+Platform" alt="E-Commerce" class="project-image-back">
-                        <p class="text-gray-400 text-xs mt-2">Complete online store with payment integration, inventory management, and customer dashboard.</p>
-                        <a href="#" class="project-demo-btn-back">Live Demo →</a>
-                    </div>
-                </div>
-            </div>
+            <div class="project-flip-card project-item hidden-project-flip" data-project="4"><div class="project-flip-card-inner"><div class="project-flip-card-front"><i class="fas fa-shopping-cart"></i><h3 class="text-base">E-Commerce Platform</h3><button class="project-get-more-btn">Get More</button></div><div class="project-flip-card-back"><img src="https://placehold.co/400x160/1a1a2e/e67e22?text=E-Commerce+Platform" alt="E-Commerce" class="project-image-back"><p class="text-gray-400 text-[0.65rem] mt-1">Complete online store with payment integration.</p><a href="#" class="project-demo-btn-back text-[9px]">Live Demo →</a></div></div></div>
             
-            <!-- Project 5 - Corporate Training Portal (HIDDEN) -->
-            <div class="project-flip-card project-item hidden-project-flip" data-project="5">
-                <div class="project-flip-card-inner">
-                    <div class="project-flip-card-front">
-                        <i class="fas fa-chalkboard"></i>
-                        <h3>Corporate Training Portal</h3>
-                        <button class="project-get-more-btn">Get More</button>
-                    </div>
-                    <div class="project-flip-card-back">
-                        <img src="https://placehold.co/400x160/1a1a2e/e67e22?text=Corporate+Training+Portal" alt="Training Portal" class="project-image-back">
-                        <p class="text-gray-400 text-xs mt-2">LMS for employee skill development with video courses, quizzes, and progress tracking.</p>
-                        <a href="#" class="project-demo-btn-back">Live Demo →</a>
-                    </div>
-                </div>
-            </div>
+            <div class="project-flip-card project-item hidden-project-flip" data-project="5"><div class="project-flip-card-inner"><div class="project-flip-card-front"><i class="fas fa-chalkboard"></i><h3 class="text-base">Corporate Training Portal</h3><button class="project-get-more-btn">Get More</button></div><div class="project-flip-card-back"><img src="https://placehold.co/400x160/1a1a2e/e67e22?text=Corporate+Training+Portal" alt="Training Portal" class="project-image-back"><p class="text-gray-400 text-[0.65rem] mt-1">LMS for employee skill development.</p><a href="#" class="project-demo-btn-back text-[9px]">Live Demo →</a></div></div></div>
             
-            <!-- Project 6 - AI Chatbot Solution (HIDDEN) -->
-            <div class="project-flip-card project-item hidden-project-flip" data-project="6">
-                <div class="project-flip-card-inner">
-                    <div class="project-flip-card-front">
-                        <i class="fas fa-robot"></i>
-                        <h3>AI Chatbot Solution</h3>
-                        <button class="project-get-more-btn">Get More</button>
-                    </div>
-                    <div class="project-flip-card-back">
-                        <img src="https://placehold.co/400x160/1a1a2e/e67e22?text=AI+Chatbot+Solution" alt="AI Chatbot" class="project-image-back">
-                        <p class="text-gray-400 text-xs mt-2">Customer support automation with AI-powered chatbot and 24/7 response system.</p>
-                        <a href="#" class="project-demo-btn-back">Live Demo →</a>
-                    </div>
-                </div>
-            </div>
+            <div class="project-flip-card project-item hidden-project-flip" data-project="6"><div class="project-flip-card-inner"><div class="project-flip-card-front"><i class="fas fa-robot"></i><h3 class="text-base">AI Chatbot Solution</h3><button class="project-get-more-btn">Get More</button></div><div class="project-flip-card-back"><img src="https://placehold.co/400x160/1a1a2e/e67e22?text=AI+Chatbot+Solution" alt="AI Chatbot" class="project-image-back"><p class="text-gray-400 text-[0.65rem] mt-1">Customer support automation with AI.</p><a href="#" class="project-demo-btn-back text-[9px]">Live Demo →</a></div></div></div>
         </div>
         
-        <div class="text-center mt-8">
-            <button id="toggleProjectsBtn" class="projects-btn inline-block border border-orange-500 text-orange-500 px-6 py-2 rounded-full text-sm hover:bg-orange-500 hover:text-white transition-all duration-300">Show All Projects ↓</button>
+        <div class="text-center mt-6">
+            <button id="toggleProjectsBtn" class="projects-btn inline-block border border-orange-500 text-orange-500 px-5 py-1.5 rounded-full text-xs hover:bg-orange-500 hover:text-white transition-all duration-300">Show All Projects ↓</button>
         </div>
     </div>
 </section>
 
 <!-- Courses Section -->
 <section id="courses" class="py-10 bg-[#0a0a0a]">
-    <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-center text-3xl md:text-4xl font-bold mb-3" data-aos="fade-down">Our <span class="text-orange-500">Programs</span></h2>
-        <p class="text-center text-gray-400 text-sm max-w-2xl mx-auto mb-6" data-aos="fade-up">Your journey to professional excellence starts here. Learn, Grow, and Succeed with our comprehensive training modules.</p>
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-center text-2xl md:text-4xl font-bold mb-2" data-aos="fade-down">Our <span class="text-orange-500">Programs</span></h2>
+        <p class="text-center text-gray-400 text-xs md:text-sm max-w-2xl mx-auto mb-6" data-aos="fade-up">Your journey to professional excellence starts here. Learn, Grow, and Succeed with our comprehensive training modules.</p>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            <div class="flip-card" data-card="course1"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-code text-orange-500 text-3xl mb-2"></i><h3 class="text-base font-bold mb-1">IT & Development</h3><p class="front-desc">Software & Web Solutions</p><button class="click-me-btn">Get More</button></div><div class="flip-card-back"><i class="fas fa-code text-orange-500 text-xl mb-1"></i><h3 class="text-sm font-bold mb-1 text-center">IT & Development Programs</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> Website Development</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Web Application Development</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Mobile App Development (Flutter)</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Python Development</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20IT%20%26%20Development%20Programs" class="quote-btn" target="_blank">Get Free Quotation →</a></div></div></div>
-            <div class="flip-card" data-card="course2"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-bullhorn text-orange-500 text-3xl mb-2"></i><h3 class="text-base font-bold mb-1">Marketing & Creative</h3><p class="front-desc">Digital Growth Solutions</p><button class="click-me-btn">Get More</button></div><div class="flip-card-back"><i class="fas fa-bullhorn text-orange-500 text-xl mb-1"></i><h3 class="text-sm font-bold mb-1 text-center">Marketing & Creative Programs</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> Digital Marketing</div><div class="back-course-item"><i class="fas fa-angle-right"></i> SEO Services</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Graphic Designing</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Video Editing</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Marketing%20%26%20Creative%20Programs" class="quote-btn" target="_blank">Get Free Quotation →</a></div></div></div>
-            <div class="flip-card" data-card="course3"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-wrench text-orange-500 text-3xl mb-2"></i><h3 class="text-base font-bold mb-1">Technical Skills</h3><p class="front-desc">Professional Trade Training</p><button class="click-me-btn">Get More</button></div><div class="flip-card-back"><i class="fas fa-wrench text-orange-500 text-xl mb-1"></i><h3 class="text-sm font-bold mb-1 text-center">Technical Skills Development</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> Domestic Electrician</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Industrial Electrician</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Solar Technician</div><div class="back-course-item"><i class="fas fa-angle-right"></i> RAC Technician</div><div class="back-course-item"><i class="fas fa-angle-right"></i> CCTV Technician</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Technical%20Skills%20Development" class="quote-btn" target="_blank">Get Free Quotation →</a></div></div></div>
-            <div class="flip-card" data-card="course4"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-brain text-orange-500 text-3xl mb-2"></i><h3 class="text-base font-bold mb-1">AI & Emerging Tech</h3><p class="front-desc">Future-Ready Technologies</p><button class="click-me-btn">Get More</button></div><div class="flip-card-back"><i class="fas fa-brain text-orange-500 text-xl mb-1"></i><h3 class="text-sm font-bold mb-1 text-center">AI & Emerging Technologies</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> Artificial Intelligence</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Machine Learning</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Generative AI & Chatbot Development</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Workflow Automation</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20AI%20%26%20Emerging%20Technologies" class="quote-btn" target="_blank">Get Free Quotation →</a></div></div></div>
-            <div class="flip-card" data-card="course5"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-helmet-safety text-orange-500 text-3xl mb-2"></i><h3 class="text-base font-bold mb-1">Health & Safety</h3><p class="front-desc">International Certifications</p><button class="click-me-btn">Get More</button></div><div class="flip-card-back"><i class="fas fa-helmet-safety text-orange-500 text-xl mb-1"></i><h3 class="text-sm font-bold mb-1 text-center">Health & Safety Certifications</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> NEBOSH</div><div class="back-course-item"><i class="fas fa-angle-right"></i> OSHA</div><div class="back-course-item"><i class="fas fa-angle-right"></i> IOSH</div><div class="back-course-item"><i class="fas fa-angle-right"></i> ISO OHSAS (US)</div><div class="back-course-item"><i class="fas fa-angle-right"></i> ISO HSE (UK)</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Level 2 Safety Certifications</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Health%20%26%20Safety%20Certifications" class="quote-btn" target="_blank">Get Free Quotation →</a></div></div></div>
-            <div class="flip-card" data-card="course6"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-chart-simple text-orange-500 text-3xl mb-2"></i><h3 class="text-base font-bold mb-1">Trading & Finance</h3><p class="front-desc">Financial Markets Mastery</p><button class="click-me-btn">Get More</button></div><div class="flip-card-back"><i class="fas fa-chart-simple text-orange-500 text-xl mb-1"></i><h3 class="text-sm font-bold mb-1 text-center">Trading & Financial Markets</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> Forex Trading & Financial Markets</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Learn Grow Succeed</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Trading%20%26%20Financial%20Markets" class="quote-btn" target="_blank">Get Free Quotation →</a></div></div></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div class="flip-card" data-card="course1"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-code text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">IT & Development</h3><p class="front-desc text-xs">Software & Web Solutions</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-code text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">IT & Development Programs</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> Website Development</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Web Application Development</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Mobile App Development (Flutter)</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Python Development</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20IT%20%26%20Development%20Programs" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
+            <div class="flip-card" data-card="course2"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-bullhorn text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">Marketing & Creative</h3><p class="front-desc text-xs">Digital Growth Solutions</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-bullhorn text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">Marketing & Creative Programs</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> Digital Marketing</div><div class="back-course-item"><i class="fas fa-angle-right"></i> SEO Services</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Graphic Designing</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Video Editing</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Marketing%20%26%20Creative%20Programs" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
+            <div class="flip-card" data-card="course3"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-wrench text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">Technical Skills</h3><p class="front-desc text-xs">Professional Trade Training</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-wrench text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">Technical Skills Development</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> Domestic Electrician</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Industrial Electrician</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Solar Technician</div><div class="back-course-item"><i class="fas fa-angle-right"></i> RAC Technician</div><div class="back-course-item"><i class="fas fa-angle-right"></i> CCTV Technician</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Technical%20Skills%20Development" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
+            <div class="flip-card" data-card="course4"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-brain text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">AI & Emerging Tech</h3><p class="front-desc text-xs">Future-Ready Technologies</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-brain text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">AI & Emerging Technologies</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> Artificial Intelligence</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Machine Learning</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Generative AI & Chatbot Development</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Workflow Automation</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20AI%20%26%20Emerging%20Technologies" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
+            <div class="flip-card" data-card="course5"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-helmet-safety text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">Health & Safety</h3><p class="front-desc text-xs">International Certifications</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-helmet-safety text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">Health & Safety Certifications</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> NEBOSH</div><div class="back-course-item"><i class="fas fa-angle-right"></i> OSHA</div><div class="back-course-item"><i class="fas fa-angle-right"></i> IOSH</div><div class="back-course-item"><i class="fas fa-angle-right"></i> ISO OHSAS (US)</div><div class="back-course-item"><i class="fas fa-angle-right"></i> ISO HSE (UK)</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Level 2 Safety Certifications</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Health%20%26%20Safety%20Certifications" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
+            <div class="flip-card" data-card="course6"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-chart-simple text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">Trading & Finance</h3><p class="front-desc text-xs">Financial Markets Mastery</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-chart-simple text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">Trading & Financial Markets</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> Forex Trading & Financial Markets</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Learn Grow Succeed</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Trading%20%26%20Financial%20Markets" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
         </div>
     </div>
 </section>
 
 <!-- Real Impact Section -->
-<section id="testimonials" class="py-16 bg-black">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-5xl font-bold mb-3" data-aos="fade-down">Real <span class="text-orange-500">Impact</span></h2>
-            <p class="text-gray-400 text-sm max-w-2xl mx-auto" data-aos="fade-up">What our students say about us</p>
+<section id="testimonials" class="py-12 bg-black">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl md:text-4xl font-bold mb-2" data-aos="fade-down">Real <span class="text-orange-500">Impact</span></h2>
+            <p class="text-gray-400 text-xs md:text-sm max-w-2xl mx-auto" data-aos="fade-up">What our students say about us</p>
         </div>
 
-        <div class="text-center mb-8">
+        <div class="text-center mb-6">
             <button id="writeReviewBtn" class="write-review-btn"><i class="fas fa-pen-alt"></i> Write a Review</button>
         </div>
 
         <div class="marquee-container" data-aos="fade-up">
             <div class="marquee-row-left-to-right" id="marqueeRow1">
-                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The communication course completely transformed how I present to clients. Got promoted within 3 months! Best decision ever."</p><h4 class="review-name">Ahmed Raza</h4><p class="review-title">Senior Analyst</p></div>
-                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Leadership training gave me practical tools that actually work. My team's productivity increased by 40% in just 2 months."</p><h4 class="review-name">Fatima Khan</h4><p class="review-title">Project Manager</p></div>
-                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"From being nervous in meetings to confidently leading weekly syncs. This was the best investment in my career."</p><h4 class="review-name">Bilal Ahmed</h4><p class="review-title">Tech Lead</p></div>
-                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The soft skills training helped me land my dream job. The interview preparation modules were exceptional."</p><h4 class="review-name">Sana Malik</h4><p class="review-title">HR Specialist</p></div>
-                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The teamwork and collaboration modules transformed how I work with my colleagues. Now leading cross-functional teams successfully."</p><h4 class="review-name">Omar Farooq</h4><p class="review-title">Team Lead</p></div>
-                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The emotional intelligence workshop was life-changing. I now handle workplace conflicts better than ever."</p><h4 class="review-name">Zainab Ali</h4><p class="review-title">Operations Manager</p></div>
+                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The communication course completely transformed how I present to clients. Got promoted within 3 months!"</p><h4 class="review-name">Ahmed Raza</h4><p class="review-title">Senior Analyst</p></div>
+                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Leadership training gave me practical tools. My team's productivity increased by 40%!"</p><h4 class="review-name">Fatima Khan</h4><p class="review-title">Project Manager</p></div>
+                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"From nervous in meetings to leading weekly syncs. Best investment in my career."</p><h4 class="review-name">Bilal Ahmed</h4><p class="review-title">Tech Lead</p></div>
+                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The soft skills training helped me land my dream job. Exceptional!"</p><h4 class="review-name">Sana Malik</h4><p class="review-title">HR Specialist</p></div>
+                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The teamwork modules transformed how I work with colleagues. Highly recommended!"</p><h4 class="review-name">Omar Farooq</h4><p class="review-title">Team Lead</p></div>
+                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The emotional intelligence workshop was life-changing. Now handle conflicts better."</p><h4 class="review-name">Zainab Ali</h4><p class="review-title">Operations Manager</p></div>
             </div>
             <div class="marquee-row-right-to-left" id="marqueeRow2">
-                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Excellent training with real-world examples. The instructors are knowledgeable and supportive throughout the journey."</p><h4 class="review-name">Hassan Raza</h4><p class="review-title">Business Analyst</p></div>
-                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The presentation skills module helped me pitch ideas confidently to senior management. Highly recommended!"</p><h4 class="review-name">Ayesha Siddiqui</h4><p class="review-title">Marketing Head</p></div>
-                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Great curriculum with practical assignments. The mentorship program is top-notch and very helpful for career growth."</p><h4 class="review-name">Usman Chaudhry</h4><p class="review-title">Product Manager</p></div>
-                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The technical communication course bridged the gap between my coding skills and client interactions. Game changer!"</p><h4 class="review-name">Mariam Tariq</h4><p class="review-title">Software Engineer</p></div>
+                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Excellent training with real-world examples. Knowledgeable instructors!"</p><h4 class="review-name">Hassan Raza</h4><p class="review-title">Business Analyst</p></div>
+                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The presentation skills module helped me pitch ideas confidently. Highly recommended!"</p><h4 class="review-name">Ayesha Siddiqui</h4><p class="review-title">Marketing Head</p></div>
+                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Great curriculum with practical assignments. Mentorship program is top-notch!"</p><h4 class="review-name">Usman Chaudhry</h4><p class="review-title">Product Manager</p></div>
+                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The technical communication course bridged the gap between coding and clients. Game changer!"</p><h4 class="review-name">Mariam Tariq</h4><p class="review-title">Software Engineer</p></div>
             </div>
         </div>
     </div>
@@ -966,111 +920,62 @@
 <div id="reviewModal" class="review-modal">
     <div class="review-modal-content">
         <span class="close-modal" id="closeModal">&times;</span>
-        <h3 class="text-2xl font-bold text-center mb-4">Share Your <span class="text-orange-500">Experience</span></h3>
+        <h3 class="text-xl font-bold text-center mb-3">Share Your <span class="text-orange-500">Experience</span></h3>
         <div class="rating-stars" id="ratingStars"><i class="fas fa-star rating-star" data-rating="1"></i><i class="fas fa-star rating-star" data-rating="2"></i><i class="fas fa-star rating-star" data-rating="3"></i><i class="fas fa-star rating-star" data-rating="4"></i><i class="fas fa-star rating-star" data-rating="5"></i></div>
         <input type="text" id="reviewerName" class="review-input" placeholder="Your Name" required>
         <input type="text" id="reviewerTitle" class="review-input" placeholder="Your Title (e.g., Project Manager)">
         <textarea id="reviewText" class="review-input" placeholder="Write your review here..." required></textarea>
         <button id="submitReview" class="submit-review-btn">Submit Review</button>
-        <p class="text-center text-gray-500 text-xs mt-3">Your review will help others make better decisions!</p>
+        <p class="text-center text-gray-500 text-[0.6rem] mt-2">Your review will help others make better decisions!</p>
     </div>
 </div>
 
 <!-- FAQ Section -->
-<section class="py-12 bg-[#0a0a0a]">
-    <div class="max-w-3xl mx-auto px-6">
-        <h2 class="text-center text-3xl font-bold mb-6">Common <span class="text-orange-500">Questions</span></h2>
-        <div class="space-y-3">
-            <div class="faq-item bg-black p-3 rounded-xl border border-transparent" data-aos="fade-up"><div class="flex justify-between font-bold text-sm"><span class="faq-question">Classes online hain ya campus?</span><i class="fas fa-plus text-xs text-orange-500"></i></div><div class="faq-answer text-gray-400">Hum hybrid model follow karte hain: Islamabad campus par sessions aur remote workers ke liye online live classes.</div></div>
-            <div class="faq-item bg-black p-3 rounded-xl border border-transparent" data-aos="fade-up" data-aos-delay="100"><div class="flex justify-between font-bold text-sm"><span class="faq-question">Payment installments mein hosakti hai?</span><i class="fas fa-plus text-xs text-orange-500"></i></div><div class="faq-answer text-gray-400">Ji bilkul, hamare long-term courses ke liye installment plan maujood hai.</div></div>
+<section class="py-10 bg-[#0a0a0a]">
+    <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-5">Common <span class="text-orange-500">Questions</span></h2>
+        <div class="space-y-2">
+            <div class="faq-item bg-black p-3 rounded-xl border border-transparent" data-aos="fade-up"><div class="flex justify-between font-bold text-sm"><span class="faq-question">Classes online hain ya campus?</span><i class="fas fa-plus text-xs text-orange-500"></i></div><div class="faq-answer text-gray-400 text-xs">Hum hybrid model follow karte hain: Islamabad campus par sessions aur remote workers ke liye online live classes.</div></div>
+            <div class="faq-item bg-black p-3 rounded-xl border border-transparent" data-aos="fade-up" data-aos-delay="100"><div class="flex justify-between font-bold text-sm"><span class="faq-question">Payment installments mein hosakti hai?</span><i class="fas fa-plus text-xs text-orange-500"></i></div><div class="faq-answer text-gray-400 text-xs">Ji bilkul, hamare long-term courses ke liye installment plan maujood hai.</div></div>
         </div>
     </div>
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="py-12 bg-black">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+<section id="contact" class="py-10 bg-black">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div data-aos="fade-right">
-            <h2 class="text-3xl md:text-4xl font-bold mb-5">Get In <span class="text-orange-500">Touch</span></h2>
-            <div class="space-y-3 text-gray-400">
+            <h2 class="text-2xl md:text-4xl font-bold mb-4">Get In <span class="text-orange-500">Touch</span></h2>
+            <div class="space-y-2 text-gray-400">
                 <div class="contact-info-item"><i class="fas fa-location-dot text-orange-500"></i><span> D-110 5th floor, 6th Road, Satellite Town, Rawalpindi</span></div>
                 <div class="contact-info-item"><i class="fas fa-phone text-orange-500"></i><span> +92 300 2457241</span></div>
                 <div class="contact-info-item"><i class="fas fa-envelope text-orange-500"></i><span> info@softskills.it.com</span></div>
             </div>
         </div>
-        <div class="contact-form-card bg-[#0a0a0a] p-5 rounded-xl border border-white/5 shadow-2xl" data-aos="fade-left"><form class="space-y-3"><input type="text" placeholder="Full Name" class="form-input"><input type="email" placeholder="Email" class="form-input"><textarea rows="2" placeholder="How can we help?" class="form-input"></textarea><button class="submit-btn w-full bg-orange-500 rounded-lg font-bold hover:bg-orange-600 transition">Send Message</button></form></div>
+        <div class="contact-form-card bg-[#0a0a0a] p-4 rounded-xl border border-white/5 shadow-2xl" data-aos="fade-left"><form class="space-y-3"><input type="text" placeholder="Full Name" class="form-input"><input type="email" placeholder="Email" class="form-input"><textarea rows="2" placeholder="How can we help?" class="form-input"></textarea><button class="submit-btn w-full bg-orange-500 rounded-lg font-bold hover:bg-orange-600 transition">Send Message</button></form></div>
     </div>
 </section>
 
 <!-- Enhanced Footer -->
-<footer class="bg-[#0a0a0a] pt-12 pb-6 border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-            
-            <!-- Column 1: Brand & About -->
+<footer class="bg-[#0a0a0a] pt-8 pb-4 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
             <div>
-                <div class="footer-logo brand-wrapper mb-4">
-                    <img src="image/Screenshot 2026-04-16 171424.png" alt="Logo" class="h-10">
-                </div>
-                <p class="text-gray-500 text-xs mb-4 leading-relaxed">Empowering professionals through practical soft skills training and modern IT solutions. Building tomorrow's leaders today.</p>
-                <div class="flex gap-3">
-                    <a href="https://www.facebook.com/softskillsengineering" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-facebook-f text-sm"></i></a>
-                    <a href="https://www.instagram.com/softskillsengineering" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-instagram text-sm"></i></a>
-                    <a href="https://www.linkedin.com/company/softskillsengineering" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-linkedin-in text-sm"></i></a>
-                    <a href="https://www.twitter.com/softskillseng" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-twitter text-sm"></i></a>
-                    <a href="https://www.youtube.com/@softskillsengineering" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-youtube text-sm"></i></a>
+                <div class="footer-logo brand-wrapper mb-3"><img src="image/Screenshot 2026-04-16 171424.png" alt="Logo" class="h-8"></div>
+                <p class="text-gray-500 text-[0.65rem] mb-3 leading-relaxed">Empowering professionals through practical soft skills training and modern IT solutions.</p>
+                <div class="flex gap-2">
+                    <a href="https://www.facebook.com/softskillsengineering" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-facebook-f text-xs"></i></a>
+                    <a href="https://www.instagram.com/softskillsengineering" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-instagram text-xs"></i></a>
+                    <a href="https://www.linkedin.com/company/softskillsengineering" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-linkedin-in text-xs"></i></a>
+                    <a href="https://www.twitter.com/softskillseng" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-twitter text-xs"></i></a>
+                    <a href="https://www.youtube.com/@softskillsengineering" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-youtube text-xs"></i></a>
                 </div>
             </div>
-            
-            <!-- Column 2: Quick Links -->
-            <div>
-                <h4 class="text-white font-semibold text-sm mb-4">Quick Links</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="footer-link-custom">Home</a></li>
-                    <li><a href="#services" class="footer-link-custom">Core Solutions</a></li>
-                    <li><a href="#projects" class="footer-link-custom">Our Projects</a></li>
-                    <li><a href="#courses" class="footer-link-custom">Programs</a></li>
-                    <li><a href="#testimonials" class="footer-link-custom">Success Stories</a></li>
-                    <li><a href="#contact" class="footer-link-custom">Contact Us</a></li>
-                </ul>
-            </div>
-            
-            <!-- Column 3: Services -->
-            <div>
-                <h4 class="text-white font-semibold text-sm mb-4">Our Services</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="footer-link-custom">Soft Skills Training</a></li>
-                    <li><a href="#" class="footer-link-custom">Leadership Development</a></li>
-                    <li><a href="#" class="footer-link-custom">Corporate Training</a></li>
-                    <li><a href="#" class="footer-link-custom">Digital Marketing</a></li>
-                    <li><a href="#" class="footer-link-custom">IT & Ecommerce Solutions</a></li>
-                    <li><a href="#" class="footer-link-custom">AI & Automation</a></li>
-                </ul>
-            </div>
-            
-            <!-- Column 4: Newsletter & Hours -->
-            <div>
-                <h4 class="text-white font-semibold text-sm mb-4">Stay Updated</h4>
-                <p class="text-gray-500 text-xs mb-3">Subscribe to get latest updates and offers.</p>
-                <div class="flex mb-4">
-                    <input type="email" placeholder="Your email" class="newsletter-input flex-1 text-xs">
-                    <button class="newsletter-btn ml-2 text-xs">Subscribe</button>
-                </div>
-                <div class="mt-4">
-                    <h4 class="text-white font-semibold text-sm mb-2">Office Hours</h4>
-                    <p class="text-gray-500 text-xs">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    <p class="text-gray-500 text-xs">Saturday: 10:00 AM - 2:00 PM</p>
-                    <p class="text-gray-500 text-xs">Sunday: Closed</p>
-                </div>
-            </div>
+            <div><h4 class="text-white font-semibold text-sm mb-3">Quick Links</h4><ul class="space-y-1"><li><a href="#" class="footer-link-custom">Home</a></li><li><a href="#services" class="footer-link-custom">Core Solutions</a></li><li><a href="#projects" class="footer-link-custom">Our Projects</a></li><li><a href="#courses" class="footer-link-custom">Programs</a></li><li><a href="#testimonials" class="footer-link-custom">Success Stories</a></li><li><a href="#contact" class="footer-link-custom">Contact Us</a></li></ul></div>
+            <div><h4 class="text-white font-semibold text-sm mb-3">Our Services</h4><ul class="space-y-1"><li><a href="#" class="footer-link-custom">Soft Skills Training</a></li><li><a href="#" class="footer-link-custom">Leadership Development</a></li><li><a href="#" class="footer-link-custom">Corporate Training</a></li><li><a href="#" class="footer-link-custom">Digital Marketing</a></li><li><a href="#" class="footer-link-custom">IT & Ecommerce Solutions</a></li><li><a href="#" class="footer-link-custom">AI & Automation</a></li></ul></div>
+            <div><h4 class="text-white font-semibold text-sm mb-3">Stay Updated</h4><p class="text-gray-500 text-[0.65rem] mb-2">Subscribe to get latest updates and offers.</p><div class="flex mb-3"><input type="email" placeholder="Your email" class="newsletter-input flex-1 text-[0.65rem]"><button class="newsletter-btn ml-2 text-[0.65rem]">Subscribe</button></div><div><h4 class="text-white font-semibold text-sm mb-1">Office Hours</h4><p class="text-gray-500 text-[0.65rem]">Mon-Fri: 9AM - 6PM</p><p class="text-gray-500 text-[0.65rem]">Sat: 10AM - 2PM</p><p class="text-gray-500 text-[0.65rem]">Sun: Closed</p></div></div>
         </div>
-        
-        <!-- Copyright -->
-        <div class="border-t border-white/10 pt-6 text-center">
-            <p class="text-gray-500 text-xs">© 2026 softskills.it.com | All Rights Reserved.
-                <a href="sitemap.html" class="text-orange-500 hover:underline">Sitemap</a>
-            </p>
-        </div>
+        <div class="border-t border-white/10 pt-4 text-center"><p class="text-gray-500 text-[0.6rem]">© 2026 softskills.it.com | All Rights Reserved. <a href="sitemap.html" class="text-orange-500 hover:underline">Sitemap</a></p></div>
     </div>
 </footer>
 
@@ -1085,20 +990,14 @@
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height) * 100;
         document.querySelector('.scroll-progress').style.width = scrolled + '%';
-        
         const backToTop = document.getElementById('backToTop');
-        if (window.scrollY > 300) {
-            backToTop.classList.add('show');
-        } else {
-            backToTop.classList.remove('show');
-        }
+        if (window.scrollY > 300) backToTop.classList.add('show');
+        else backToTop.classList.remove('show');
     });
 
-    document.getElementById('backToTop').addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    document.getElementById('backToTop').addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-    AOS.init({ once: true, duration: 800 });
+    AOS.init({ once: true, duration: 800, disable: window.innerWidth < 768 ? 'phone' : false });
 
     window.addEventListener('load', () => {
         const tl = gsap.timeline();
@@ -1157,24 +1056,14 @@
     const toggleBtn = document.getElementById('toggleProjectsBtn');
     const hiddenProjects = document.querySelectorAll('.hidden-project-flip');
     let isExpanded = false;
-    
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
             if (!isExpanded) {
-                hiddenProjects.forEach((project) => {
-                    project.style.display = 'block';
-                    project.classList.add('show-animation');
-                });
+                hiddenProjects.forEach((project) => { project.style.display = 'block'; project.classList.add('show-animation'); });
                 toggleBtn.innerHTML = 'Show Less ↑';
                 isExpanded = true;
             } else {
-                hiddenProjects.forEach((project) => {
-                    project.classList.add('hide-animation');
-                    setTimeout(() => {
-                        project.style.display = 'none';
-                        project.classList.remove('hide-animation', 'show-animation');
-                    }, 400);
-                });
+                hiddenProjects.forEach((project) => { project.classList.add('hide-animation'); setTimeout(() => { project.style.display = 'none'; project.classList.remove('hide-animation', 'show-animation'); }, 400); });
                 toggleBtn.innerHTML = 'Show All Projects ↓';
                 isExpanded = false;
             }
@@ -1188,27 +1077,17 @@
     const closeModal = document.getElementById('closeModal');
     const submitReview = document.getElementById('submitReview');
     let selectedRating = 5;
-    
     const stars = document.querySelectorAll('.rating-star');
     stars.forEach(star => {
         star.addEventListener('click', function() {
             selectedRating = parseInt(this.getAttribute('data-rating'));
-            stars.forEach(s => {
-                const rating = parseInt(s.getAttribute('data-rating'));
-                if (rating <= selectedRating) {
-                    s.classList.add('active');
-                } else {
-                    s.classList.remove('active');
-                }
-            });
+            stars.forEach(s => { const rating = parseInt(s.getAttribute('data-rating')); if (rating <= selectedRating) s.classList.add('active'); else s.classList.remove('active'); });
         });
         if (parseInt(star.getAttribute('data-rating')) <= 5) star.classList.add('active');
     });
-    
     writeReviewBtn.addEventListener('click', () => { modal.classList.add('active'); document.body.style.overflow = 'hidden'; });
     closeModal.addEventListener('click', () => { modal.classList.remove('active'); document.body.style.overflow = 'auto'; });
     modal.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.remove('active'); document.body.style.overflow = 'auto'; } });
-    
     submitReview.addEventListener('click', () => {
         const name = document.getElementById('reviewerName').value.trim();
         const title = document.getElementById('reviewerTitle').value.trim();
@@ -1233,13 +1112,8 @@
     btn.addEventListener('click', () => {
         menu.classList.toggle('show');
         const icon = btn.querySelector('i');
-        if(menu.classList.contains('show')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
+        if(menu.classList.contains('show')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); }
+        else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
     });
     menu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
