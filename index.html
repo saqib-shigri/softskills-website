@@ -45,7 +45,6 @@
             box-shadow: 0 0 10px rgba(230,126,34,0.5);
         }
 
-        /* Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 80px;
@@ -117,7 +116,6 @@
         .nav-link:hover .link-text { transform: translateY(-100%); }
         .nav-link:hover .link-hover { transform: translateY(-100%); }
 
-        /* GET STARTED BUTTON */
         .nav-button-cta { 
             background: linear-gradient(135deg, #e67e22, #f39c12, #e67e22);
             background-size: 200% 200%;
@@ -286,7 +284,6 @@
         .back-course-item:hover { color: #e67e22; transform: translateX(3px); border-bottom-color: rgba(230,126,34,0.3); }
         .back-course-item i { font-size: 0.55rem; color: #e67e22; }
         
-        /* Project Flip Cards */
         .project-flip-card {
             background-color: transparent;
             width: 100%;
@@ -435,22 +432,23 @@
         .project-item.show-animation { animation: fadeInUp 0.4s ease forwards; display: block !important; }
         .project-item.hide-animation { animation: fadeOutDown 0.3s ease forwards; }
         
-        /* MARQUEE STYLES */
+        /* ======================================== */
+        /* MARQUEE STYLES - NO CONTAINER BACKGROUND */
+        /* ======================================== */
         .marquee-container {
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: linear-gradient(135deg, #0a0a0a 0%, #000000 100%);
-            border-radius: 1rem;
-            padding: 0.75rem 0;
-            border: 1px solid rgba(255,255,255,0.08);
+            background: transparent;
+            border: none;
+            padding: 0;
         }
         
         .marquee-row-left-to-right {
             display: flex;
             width: fit-content;
             animation: marqueeLeftToRight 25s linear infinite;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
         
         .marquee-row-right-to-left {
@@ -459,6 +457,7 @@
             animation: marqueeRightToLeft 25s linear infinite;
         }
         
+        /* Hover pe STOP - but background transparent hai */
         .marquee-row-left-to-right:hover,
         .marquee-row-right-to-left:hover {
             animation-play-state: paused;
@@ -476,41 +475,42 @@
         
         .review-card {
             flex-shrink: 0;
-            width: 300px;
-            margin: 0 12px;
-            padding: 1rem;
-            background: rgba(0,0,0,0.5);
+            width: 320px;
+            margin: 0 15px;
+            padding: 1.2rem;
+            background: rgba(0,0,0,0.6);
             border-radius: 0.75rem;
             border-left: 3px solid #e67e22;
             transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
         }
         
         .review-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
             background: rgba(0,0,0,0.8);
             border-color: #d35400;
         }
         
         .review-text {
-            font-size: 0.75rem;
-            line-height: 1.4;
+            font-size: 0.8rem;
+            line-height: 1.5;
             color: #d1d5db;
             margin-bottom: 0.75rem;
         }
         
         .review-name {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: #e67e22;
         }
         
         .review-title {
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             color: #6b7280;
         }
         
-        .stars { margin-bottom: 0.5rem; }
-        .stars i { font-size: 0.6rem; color: #fbbf24; margin-right: 2px; }
+        .stars { margin-bottom: 0.6rem; }
+        .stars i { font-size: 0.7rem; color: #fbbf24; margin-right: 2px; }
         
         /* Review Modal */
         .review-modal {
@@ -622,7 +622,6 @@
         .submit-btn { transition: all 0.3s ease; cursor: pointer; font-size: 13px; padding: 8px; }
         .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 15px -6px rgba(230,126,34,0.5); }
         
-        /* Footer Styles */
         .footer-link-custom {
             transition: all 0.3s ease;
             display: inline-block;
@@ -685,7 +684,6 @@
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; color: #aaa; font-size: 0.7rem; }
         .faq-answer.show { max-height: 100px; padding-top: 8px; }
 
-        /* =========== MOBILE RESPONSIVE FIXES =========== */
         @media (max-width: 1100px) { 
             .nav-menu { display: none; } 
             .mobile-menu-btn { display: block; } 
@@ -706,8 +704,8 @@
             .stat-icon { font-size: 1.3rem; }
             .project-image-back { height: 90px; }
             
-            .review-card { width: 260px; padding: 0.85rem; }
-            .review-text { font-size: 0.7rem; }
+            .review-card { width: 280px; padding: 1rem; }
+            .review-text { font-size: 0.75rem; }
             
             .grid { gap: 1rem; }
             .py-10 { padding-top: 2rem; padding-bottom: 2rem; }
@@ -720,10 +718,6 @@
             .contact-info-item { font-size: 0.75rem; }
             .footer-link-custom { font-size: 0.65rem; }
             .social-icon { width: 28px; height: 28px; font-size: 12px; }
-            
-            .marquee-container { padding: 0.5rem 0; }
-            .marquee-row-left-to-right { animation-duration: 20s; }
-            .marquee-row-right-to-left { animation-duration: 20s; }
         }
         
         @media (max-width: 480px) {
@@ -740,7 +734,7 @@
             
             .flip-card { height: 260px; }
             .project-flip-card { height: 270px; }
-            .review-card { width: 240px; }
+            .review-card { width: 260px; }
             
             .btn-primary-custom, .btn-outline-custom { padding: 8px 20px; font-size: 0.8rem; }
             
@@ -756,7 +750,6 @@
 
 <div class="scroll-progress"></div>
 
-<!-- Back to Top Button -->
 <div class="back-to-top" id="backToTop">
     <i class="fas fa-arrow-up"></i>
 </div>
@@ -833,7 +826,7 @@
         <h2 class="text-center text-2xl md:text-4xl font-bold mb-2" data-aos="fade-down">Core <span class="text-orange-500">Solutions</span></h2>
         <p class="text-center text-gray-400 text-xs md:text-sm max-w-2xl mx-auto mb-6" data-aos="fade-up" data-aos-delay="100">We provide end-to-end digital, marketing, and IT solutions designed to help businesses grow, scale, and dominate their market</p>
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3" id="servicesContainer">
             <div class="flip-card" data-card="1"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-chalkboard-user text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">Soft Skills & Leadership</h3><p class="front-desc text-xs">Empowering Professional Excellence</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-chalkboard-user text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">Soft Skills & Leadership</h3><p class="text-gray-400 text-[0.6rem] text-center">Structured training programs focused on communication, leadership, teamwork, and workplace performance.</p><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Soft%20Skills%20%26%20Leadership%20Development%20course" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
             <div class="flip-card" data-card="2"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-building text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">Corporate Training</h3><p class="front-desc text-xs">Customized Organizational Development</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-building text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">Corporate Training Programs</h3><p class="text-gray-400 text-[0.6rem] text-center">Results-driven corporate training programs tailored for companies, institutions, and professional teams.</p><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Corporate%20Training%20Programs" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
             <div class="flip-card" data-card="3"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-chart-line text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">Digital Marketing</h3><p class="front-desc text-xs">Performance-Driven Solutions</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-chart-line text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">Digital Marketing & Growth</h3><p class="text-gray-400 text-[0.6rem] text-center">Complete digital marketing services including paid advertising, SEO, branding, and lead generation.</p><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Digital%20Marketing%20Services" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
@@ -849,17 +842,11 @@
         <p class="text-center text-gray-400 text-xs md:text-sm max-w-2xl mx-auto mb-6" data-aos="fade-up" data-aos-delay="100">Showcasing our successful deliveries • 50+ completed projects worldwide</p>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 projects-grid" id="projectsContainer">
-            
             <div class="project-flip-card project-item" data-project="1"><div class="project-flip-card-inner"><div class="project-flip-card-front"><i class="fas fa-globe"></i><h3 class="text-base">Zeetech Website</h3><button class="project-get-more-btn">Get More</button></div><div class="project-flip-card-back"><img src="image/zeetech.png" alt="Zeetech Website" class="project-image-back" onerror="this.src='https://placehold.co/400x160/1a1a2e/e67e22?text=Zeetech+Website'"><p class="text-gray-400 text-[0.65rem] mt-1">Complete corporate website for Zeetech Technical Services.</p><a href="https://zeetech26.com/" target="_blank" rel="noopener noreferrer" class="project-demo-btn-back text-[9px]">Live Demo →</a></div></div></div>
-            
             <div class="project-flip-card project-item" data-project="2"><div class="project-flip-card-inner"><div class="project-flip-card-front"><i class="fas fa-mobile-alt"></i><h3 class="text-base">Zeetech Mobile App</h3><button class="project-get-more-btn">Get More</button></div><div class="project-flip-card-back"><img src="https://placehold.co/400x160/1a1a2e/e67e22?text=Zeetech+Mobile+App" alt="Zeetech Mobile App" class="project-image-back"><p class="text-gray-400 text-[0.65rem] mt-1">Cross-platform mobile app for Zeetech. Coming soon!</p><a href="#" class="project-demo-btn-back text-[9px]">Coming Soon →</a></div></div></div>
-            
             <div class="project-flip-card project-item" data-project="3"><div class="project-flip-card-inner"><div class="project-flip-card-front"><i class="fas fa-chart-line"></i><h3 class="text-base">Zeetech Social Media</h3><button class="project-get-more-btn">Get More</button></div><div class="project-flip-card-back"><img src="https://placehold.co/400x160/1a1a2e/e67e22?text=Zeetech+SMM" alt="Zeetech Social Media" class="project-image-back"><p class="text-gray-400 text-[0.65rem] mt-1">Complete social media management for Zeetech.</p><a href="#" class="project-demo-btn-back text-[9px]">View Results →</a></div></div></div>
-            
             <div class="project-flip-card project-item hidden-project-flip" data-project="4"><div class="project-flip-card-inner"><div class="project-flip-card-front"><i class="fas fa-shopping-cart"></i><h3 class="text-base">E-Commerce Platform</h3><button class="project-get-more-btn">Get More</button></div><div class="project-flip-card-back"><img src="https://placehold.co/400x160/1a1a2e/e67e22?text=E-Commerce+Platform" alt="E-Commerce" class="project-image-back"><p class="text-gray-400 text-[0.65rem] mt-1">Complete online store with payment integration.</p><a href="#" class="project-demo-btn-back text-[9px]">Live Demo →</a></div></div></div>
-            
             <div class="project-flip-card project-item hidden-project-flip" data-project="5"><div class="project-flip-card-inner"><div class="project-flip-card-front"><i class="fas fa-chalkboard"></i><h3 class="text-base">Corporate Training Portal</h3><button class="project-get-more-btn">Get More</button></div><div class="project-flip-card-back"><img src="https://placehold.co/400x160/1a1a2e/e67e22?text=Corporate+Training+Portal" alt="Training Portal" class="project-image-back"><p class="text-gray-400 text-[0.65rem] mt-1">LMS for employee skill development.</p><a href="#" class="project-demo-btn-back text-[9px]">Live Demo →</a></div></div></div>
-            
             <div class="project-flip-card project-item hidden-project-flip" data-project="6"><div class="project-flip-card-inner"><div class="project-flip-card-front"><i class="fas fa-robot"></i><h3 class="text-base">AI Chatbot Solution</h3><button class="project-get-more-btn">Get More</button></div><div class="project-flip-card-back"><img src="https://placehold.co/400x160/1a1a2e/e67e22?text=AI+Chatbot+Solution" alt="AI Chatbot" class="project-image-back"><p class="text-gray-400 text-[0.65rem] mt-1">Customer support automation with AI.</p><a href="#" class="project-demo-btn-back text-[9px]">Live Demo →</a></div></div></div>
         </div>
         
@@ -875,7 +862,7 @@
         <h2 class="text-center text-2xl md:text-4xl font-bold mb-2" data-aos="fade-down">Our <span class="text-orange-500">Programs</span></h2>
         <p class="text-center text-gray-400 text-xs md:text-sm max-w-2xl mx-auto mb-6" data-aos="fade-up">Your journey to professional excellence starts here. Learn, Grow, and Succeed with our comprehensive training modules.</p>
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="coursesContainer">
             <div class="flip-card" data-card="course1"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-code text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">IT & Development</h3><p class="front-desc text-xs">Software & Web Solutions</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-code text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">IT & Development Programs</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> Website Development</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Web Application Development</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Mobile App Development (Flutter)</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Python Development</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20IT%20%26%20Development%20Programs" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
             <div class="flip-card" data-card="course2"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-bullhorn text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">Marketing & Creative</h3><p class="front-desc text-xs">Digital Growth Solutions</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-bullhorn text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">Marketing & Creative Programs</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> Digital Marketing</div><div class="back-course-item"><i class="fas fa-angle-right"></i> SEO Services</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Graphic Designing</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Video Editing</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Marketing%20%26%20Creative%20Programs" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
             <div class="flip-card" data-card="course3"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-wrench text-orange-500 text-2xl mb-2"></i><h3 class="text-sm font-bold mb-1">Technical Skills</h3><p class="front-desc text-xs">Professional Trade Training</p><button class="click-me-btn text-[8px]">Get More</button></div><div class="flip-card-back"><i class="fas fa-wrench text-orange-500 text-lg mb-1"></i><h3 class="text-[0.7rem] font-bold mb-1 text-center">Technical Skills Development</h3><div class="back-course-list"><div class="back-course-item"><i class="fas fa-angle-right"></i> Domestic Electrician</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Industrial Electrician</div><div class="back-course-item"><i class="fas fa-angle-right"></i> Solar Technician</div><div class="back-course-item"><i class="fas fa-angle-right"></i> RAC Technician</div><div class="back-course-item"><i class="fas fa-angle-right"></i> CCTV Technician</div></div><a href="https://wa.me/923002457241?text=Hi,%20I%20want%20free%20quotation%20for%20Technical%20Skills%20Development" class="quote-btn text-[9px]" target="_blank">Get Free Quotation →</a></div></div></div>
@@ -886,7 +873,7 @@
     </div>
 </section>
 
-<!-- Real Impact Section -->
+<!-- Real Impact Section - No Container Border/Background -->
 <section id="testimonials" class="py-12 bg-black">
     <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-8">
@@ -898,6 +885,7 @@
             <button id="writeReviewBtn" class="write-review-btn"><i class="fas fa-pen-alt"></i> Write a Review</button>
         </div>
 
+        <!-- Marquee with transparent background - only reviews scroll -->
         <div class="marquee-container" data-aos="fade-up">
             <div class="marquee-row-left-to-right" id="marqueeRow1">
                 <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The communication course completely transformed how I present to clients. Got promoted within 3 months!"</p><h4 class="review-name">Ahmed Raza</h4><p class="review-title">Senior Analyst</p></div>
@@ -956,7 +944,7 @@
     </div>
 </section>
 
-<!-- Enhanced Footer -->
+<!-- Footer -->
 <footer class="bg-[#0a0a0a] pt-8 pb-4 border-t border-white/5">
     <div class="max-w-7xl mx-auto px-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
@@ -973,7 +961,7 @@
             </div>
             <div><h4 class="text-white font-semibold text-sm mb-3">Quick Links</h4><ul class="space-y-1"><li><a href="#" class="footer-link-custom">Home</a></li><li><a href="#services" class="footer-link-custom">Core Solutions</a></li><li><a href="#projects" class="footer-link-custom">Our Projects</a></li><li><a href="#courses" class="footer-link-custom">Programs</a></li><li><a href="#testimonials" class="footer-link-custom">Success Stories</a></li><li><a href="#contact" class="footer-link-custom">Contact Us</a></li></ul></div>
             <div><h4 class="text-white font-semibold text-sm mb-3">Our Services</h4><ul class="space-y-1"><li><a href="#" class="footer-link-custom">Soft Skills Training</a></li><li><a href="#" class="footer-link-custom">Leadership Development</a></li><li><a href="#" class="footer-link-custom">Corporate Training</a></li><li><a href="#" class="footer-link-custom">Digital Marketing</a></li><li><a href="#" class="footer-link-custom">IT & Ecommerce Solutions</a></li><li><a href="#" class="footer-link-custom">AI & Automation</a></li></ul></div>
-            <div><h4 class="text-white font-semibold text-sm mb-3">Stay Updated</h4><p class="text-gray-500 text-[0.65rem] mb-2">Subscribe to get latest updates and offers.</p><div class="flex mb-3"><input type="email" placeholder="Your email" class="newsletter-input flex-1 text-[0.65rem]"><button class="newsletter-btn ml-2 text-[0.65rem]">Subscribe</button></div><div><h4 class="text-white font-semibold text-sm mb-1">Office Hours</h4><p class="text-gray-500 text-[0.65rem]">Mon-Fri: 9AM - 6PM</p><p class="text-gray-500 text-[0.65rem]">Sat: 10AM - 2PM</p><p class="text-gray-500 text-[0.65rem]">Sun: Closed</p></div></div>
+            <div><h4 class="text-white font-semibold text-sm mb-3">Stay Updated</h4><p class="text-gray-500 text-[0.65rem] mb-2">Subscribe to get latest updates and offers.</p><div class="flex mb-3"><input type="email" placeholder="Your email" class="newsletter-input flex-1 text-[0.65rem]"><button class="newsletter-btn ml-2 text-[0.65rem]">Subscribe</button></div><div><h4 class="text-white font-semibold text-sm mb-1">Office Hours</h4><p class="text-gray-500 text-[0.65rem]">Mon-Sat: 10AM - 6PM</p><p class="text-gray-500 text-[0.65rem]">Sun: Closed</p></div></div>
         </div>
         <div class="border-t border-white/10 pt-4 text-center"><p class="text-gray-500 text-[0.6rem]">© 2026 softskills.it.com | All Rights Reserved. <a href="sitemap.html" class="text-orange-500 hover:underline">Sitemap</a></p></div>
     </div>
@@ -1045,25 +1033,65 @@
     }, { threshold: 0.5 });
     document.querySelectorAll('.stat-card').forEach(card => counterObserver.observe(card));
 
-    document.querySelectorAll('.flip-card, .project-flip-card').forEach(card => {
+    // ONE CARD FLIP AT A TIME
+    const servicesCards = document.querySelectorAll('#servicesContainer .flip-card');
+    const projectCards = document.querySelectorAll('#projectsContainer .project-flip-card');
+    const coursesCards = document.querySelectorAll('#coursesContainer .flip-card');
+    
+    function handleCardFlip(card, cardList) {
+        if (card.classList.contains('flipped')) {
+            card.classList.remove('flipped');
+        } else {
+            cardList.forEach(c => c.classList.remove('flipped'));
+            card.classList.add('flipped');
+        }
+    }
+    
+    servicesCards.forEach(card => {
         card.addEventListener('click', function(e) {
             if(e.target.classList.contains('quote-btn') || e.target.closest('.quote-btn')) return;
+            if(e.target.classList.contains('click-me-btn') || e.target.closest('.click-me-btn')) return;
+            handleCardFlip(this, servicesCards);
+        });
+    });
+    
+    projectCards.forEach(card => {
+        card.addEventListener('click', function(e) {
             if(e.target.classList.contains('project-demo-btn-back') || e.target.closest('.project-demo-btn-back')) return;
-            this.classList.toggle('flipped');
+            if(e.target.classList.contains('project-get-more-btn') || e.target.closest('.project-get-more-btn')) return;
+            handleCardFlip(this, projectCards);
+        });
+    });
+    
+    coursesCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            if(e.target.classList.contains('quote-btn') || e.target.closest('.quote-btn')) return;
+            if(e.target.classList.contains('click-me-btn') || e.target.closest('.click-me-btn')) return;
+            handleCardFlip(this, coursesCards);
         });
     });
 
     const toggleBtn = document.getElementById('toggleProjectsBtn');
     const hiddenProjects = document.querySelectorAll('.hidden-project-flip');
     let isExpanded = false;
+    
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
             if (!isExpanded) {
-                hiddenProjects.forEach((project) => { project.style.display = 'block'; project.classList.add('show-animation'); });
+                hiddenProjects.forEach((project) => { 
+                    project.style.display = 'block'; 
+                    project.classList.add('show-animation'); 
+                });
                 toggleBtn.innerHTML = 'Show Less ↑';
                 isExpanded = true;
             } else {
-                hiddenProjects.forEach((project) => { project.classList.add('hide-animation'); setTimeout(() => { project.style.display = 'none'; project.classList.remove('hide-animation', 'show-animation'); }, 400); });
+                hiddenProjects.forEach((project) => { 
+                    project.classList.add('hide-animation'); 
+                    setTimeout(() => { 
+                        project.style.display = 'none'; 
+                        project.classList.remove('hide-animation', 'show-animation'); 
+                    }, 400); 
+                });
                 toggleBtn.innerHTML = 'Show All Projects ↓';
                 isExpanded = false;
             }
