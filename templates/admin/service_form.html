@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ action }} Service - Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-black font-['Inter']">
+
+<nav class="bg-black/95 border-b border-orange-500/20 fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <i class="fas fa-shield-alt text-orange-500 text-2xl"></i>
+            <span class="text-white font-bold">Soft Skills <span class="text-orange-500">Admin</span></span>
+        </div>
+        <div class="flex items-center gap-6">
+            <a href="{{ url_for('admin_dashboard') }}" class="text-gray-300 hover:text-orange-500 transition">Dashboard</a>
+            <a href="{{ url_for('admin_services') }}" class="text-orange-500 transition">Services</a>
+            <a href="{{ url_for('admin_projects') }}" class="text-gray-300 hover:text-orange-500 transition">Projects</a>
+            <a href="{{ url_for('admin_courses') }}" class="text-gray-300 hover:text-orange-500 transition">Courses</a>
+            <a href="{{ url_for('admin_jobs') }}" class="text-gray-300 hover:text-orange-500 transition">Jobs</a>
+            <a href="{{ url_for('admin_logout') }}" class="text-red-400 hover:text-red-300 transition">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 pb-10 px-4">
+    <div class="max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+            <a href="{{ url_for('admin_services') }}" class="text-gray-400 hover:text-orange-500">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+            <h1 class="text-3xl font-bold text-white">{{ action }} <span class="text-orange-500">Service</span></h1>
+        </div>
+        
+        <form method="POST" class="bg-black/50 border border-orange-500/20 rounded-xl p-6 space-y-5">
+            <div>
+                <label class="block text-gray-300 text-sm mb-2">Service Title *</label>
+                <input type="text" name="title" required value="{{ service.title if service else '' }}"
+                       class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white focus:border-orange-500 focus:outline-none">
+            </div>
+            
+            <div>
+                <label class="block text-gray-300 text-sm mb-2">Description</label>
+                <textarea name="description" rows="4"
+                          class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white focus:border-orange-500 focus:outline-none">{{ service.description if service else '' }}</textarea>
+            </div>
+            
+            <div>
+                <label class="block text-gray-300 text-sm mb-2">Icon (Font Awesome class)</label>
+                <input type="text" name="icon" value="{{ service.icon if service else 'fa-cogs' }}"
+                       class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white focus:border-orange-500 focus:outline-none">
+                <p class="text-gray-500 text-xs mt-1">Examples: fa-cogs, fa-chalkboard-user, fa-building, fa-chart-line</p>
+            </div>
+            
+            <div>
+                <label class="block text-gray-300 text-sm mb-2">Features (One per line)</label>
+                <textarea name="features" rows="6" class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white focus:border-orange-500 focus:outline-none">{% if service and service.features %}{{ service.features|join('\n') }}{% endif %}</textarea>
+                <p class="text-gray-500 text-xs mt-1">Each feature on new line</p>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-gray-300 text-sm mb-2">Display Order</label>
+                    <input type="number" name="display_order" value="{{ service.display_order if service else 0 }}"
+                           class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white focus:border-orange-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-gray-300 text-sm mb-2">Visibility</label>
+                    <label class="flex items-center gap-3 mt-2 cursor-pointer">
+                        <input type="checkbox" name="is_visible" {% if service and service.is_visible %}checked{% endif %} class="w-5 h-5 accent-orange-500">
+                        <span class="text-gray-300">Visible on website</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="flex gap-4 pt-4">
+                <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-lg transition">
+                    Save Service
+                </button>
+                <a href="{{ url_for('admin_services') }}" class="border border-gray-600 text-gray-400 hover:text-white px-6 py-2 rounded-lg transition">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -30,6 +30,13 @@
             width: 100%;
         }
         
+        body.modal-open {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+        
         html.lenis { height: auto; }
         .lenis.lenis-smooth { scroll-behavior: auto; }
         
@@ -106,7 +113,7 @@
 
         .nav-menu {
             display: flex; align-items: center; gap: 20px; list-style: none;
-            padding: 6px 18px; position: absolute; left: 50%; transform: translateX(-50%); 
+            padding: 6px 24px; position: absolute; left: 50%; transform: translateX(-50%); 
             background-color: rgba(255,255,255,0.05); border: 1px solid rgba(230,126,34,0.2); 
             border-radius: 50px; backdrop-filter: blur(10px);
         }
@@ -115,6 +122,10 @@
         .link-hover { position: absolute; top: 100%; left: 0; color: #e67e22; transition: 0.4s transform cubic-bezier(0.76, 0, 0.24, 1); }
         .nav-link:hover .link-text { transform: translateY(-100%); }
         .nav-link:hover .link-hover { transform: translateY(-100%); }
+        
+        .careers-nav-link .link-hover {
+            color: #e67e22;
+        }
 
         .nav-button-cta { 
             background: linear-gradient(135deg, #e67e22, #f39c12, #e67e22);
@@ -204,12 +215,218 @@
         .mobile-menu-btn { display: none; font-size: 20px; color: white; cursor: pointer; margin-right: 0; background: none; border: none; }
         .mobile-menu { display: none; position: fixed; inset: 0; background: #000; z-index: 998; padding-top: 80px; text-align: center; flex-direction: column; gap: 20px; }
         .mobile-menu.show { display: flex; }
+        
+        .mobile-menu .careers-link {
+            background: transparent;
+            border: 1px solid rgba(230,126,34,0.5);
+            padding: 8px 20px;
+            border-radius: 40px;
+            display: inline-block;
+            width: auto;
+            margin: 0 auto;
+        }
+
+        /* Careers Modal */
+        .careers-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .careers-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .careers-modal-content {
+            background: linear-gradient(135deg, #0a0a0a 0%, #000000 100%);
+            border: 1px solid rgba(230,126,34,0.3);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 90%;
+            width: 500px;
+            max-height: 80vh;
+            position: relative;
+            animation: modalSlideIn 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .jobs-scroll-container {
+            position: relative;
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin: 0 -2rem;
+            padding: 0 2rem;
+            max-height: 50vh;
+            scroll-behavior: smooth;
+        }
+        
+        .jobs-scroll-container::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+        .jobs-scroll-container::-webkit-scrollbar-track {
+            background: #1a1a1a;
+            border-radius: 10px;
+        }
+        
+        .jobs-scroll-container::-webkit-scrollbar-thumb {
+            background: #e67e22;
+            border-radius: 10px;
+        }
+        
+        .jobs-scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #d35400;
+        }
+        
+        /* CSS Marquee Animation - Pure CSS solution */
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+        
+        .jobs-marquee {
+            animation: marqueeScroll 20s linear infinite;
+        }
+        
+        /* Pause on hover */
+        .jobs-marquee:hover {
+            animation-play-state: paused;
+        }
+        
+        /* Pause when manually scrolling - will be handled by JS */
+        .jobs-scroll-container.user-scrolling .jobs-marquee {
+            animation-play-state: paused;
+        }
+        
+        .close-careers-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #e67e22;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .close-careers-modal:hover {
+            color: #d35400;
+            transform: scale(1.1);
+        }
+        
+        .job-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .job-card:hover {
+            transform: translateX(5px);
+            border-color: rgba(230,126,34,0.5);
+            background: rgba(230,126,34,0.1);
+        }
+        
+        .job-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #e67e22;
+            margin-bottom: 0.25rem;
+        }
+        
+        .job-location, .job-type {
+            font-size: 0.7rem;
+            color: #9ca3af;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        
+        .job-desc {
+            font-size: 0.75rem;
+            color: #d1d5db;
+            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .apply-btn {
+            background: transparent;
+            border: 1px solid rgba(230,126,34,0.4);
+            color: #e67e22;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .apply-btn:hover {
+            background: rgba(230,126,34,0.15);
+            border-color: #e67e22;
+            transform: translateY(-2px);
+        }
+        
+        .careers-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .careers-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .careers-header p {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+        
+        .modal-footer {
+            text-align: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-shrink: 0;
+        }
 
         .whatsapp-float {
-            position: fixed; bottom: 20px; right: 20px; background-color: #25d366;
-            color: #FFF; border-radius: 50px; text-align: center; font-size: 24px;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); z-index: 1001;
-            width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
+            position: fixed; bottom: 20px; right: 20px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 24px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 1001;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
         .whatsapp-float:hover { transform: scale(1.1) translateY(-5px); background-color: #128c7e; }
@@ -327,11 +544,8 @@
         
         .project-flip-card-back {
             background: linear-gradient(135deg, #0f0f0f 0%, #050505 100%);
-            transform: rotateY(180deg);
-            border: 1px solid rgba(230,126,34,0.3);
-            overflow-y: auto;
-            justify-content: flex-start;
-            text-align: center;
+            transform: rotateY(180deg); border: 1px solid rgba(230,126,34,0.3);
+            overflow-y: auto; justify-content: flex-start; text-align: center;
         }
         
         .project-flip-card-back::-webkit-scrollbar {
@@ -432,9 +646,6 @@
         .project-item.show-animation { animation: fadeInUp 0.4s ease forwards; display: block !important; }
         .project-item.hide-animation { animation: fadeOutDown 0.3s ease forwards; }
         
-        /* ======================================== */
-        /* MARQUEE STYLES - NO CONTAINER BACKGROUND */
-        /* ======================================== */
         .marquee-container {
             width: 100%;
             overflow: hidden;
@@ -457,7 +668,6 @@
             animation: marqueeRightToLeft 25s linear infinite;
         }
         
-        /* Hover pe STOP - but background transparent hai */
         .marquee-row-left-to-right:hover,
         .marquee-row-right-to-left:hover {
             animation-play-state: paused;
@@ -512,7 +722,6 @@
         .stars { margin-bottom: 0.6rem; }
         .stars i { font-size: 0.7rem; color: #fbbf24; margin-right: 2px; }
         
-        /* Review Modal */
         .review-modal {
             display: none;
             position: fixed;
@@ -718,6 +927,10 @@
             .contact-info-item { font-size: 0.75rem; }
             .footer-link-custom { font-size: 0.65rem; }
             .social-icon { width: 28px; height: 28px; font-size: 12px; }
+            
+            .whatsapp-float { width: 45px; height: 45px; font-size: 22px; bottom: 15px; right: 15px; }
+            .careers-modal-content { padding: 1.5rem; }
+            .job-title { font-size: 0.9rem; }
         }
         
         @media (max-width: 480px) {
@@ -743,6 +956,8 @@
             
             .footer-logo img { height: 25px; }
             .social-icon { width: 25px; height: 25px; font-size: 11px; }
+            
+            .whatsapp-float { width: 40px; height: 40px; font-size: 20px; bottom: 12px; right: 12px; }
         }
     </style>
 </head>
@@ -775,6 +990,7 @@
             <li><a href="#courses" class="nav-link"><span class="link-text">Courses</span><span class="link-hover">Courses</span></a></li>
             <li><a href="#testimonials" class="nav-link"><span class="link-text">Success</span><span class="link-hover">Success</span></a></li>
             <li><a href="#contact" class="nav-link"><span class="link-text">Contact</span><span class="link-hover">Contact</span></a></li>
+            <li><a href="#" class="nav-link careers-nav-link" id="careersNavLink"><span class="link-text">Careers</span><span class="link-hover">Careers</span></a></li>
         </ul>
         <div class="flex items-center gap-3" id="btnAnim">
             <a href="https://wa.me/923002457241" class="nav-button-cta">
@@ -792,7 +1008,29 @@
     <a href="#courses" class="text-xl font-bold">Courses</a>
     <a href="#testimonials" class="text-xl font-bold">Success</a>
     <a href="#contact" class="text-xl font-bold">Contact</a>
+    <a href="#" class="careers-link mt-2" id="mobileCareersBtn">Careers</a>
     <a href="https://wa.me/923002457241" class="bg-orange-500 px-5 py-2 rounded-xl text-base font-bold mt-5 mx-8">Get Started</a>
+</div>
+
+<!-- Careers Modal -->
+<div id="careersModal" class="careers-modal">
+    <div class="careers-modal-content">
+        <span class="close-careers-modal" id="closeCareersModal">&times;</span>
+        <div class="careers-header">
+            <h3>Join Our <span class="text-orange-500">Team</span></h3>
+            <p>Build your career with Soft Skills Engineering</p>
+        </div>
+        
+        <div class="jobs-scroll-container" id="jobsScrollContainer">
+            <div class="jobs-marquee" id="jobsMarquee">
+                <!-- Jobs will be populated here -->
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <p class="text-gray-500 text-xs">Or send your resume at <a href="mailto:careers@softskills.it.com" class="text-orange-500">careers@softskills.it.com</a></p>
+        </div>
+    </div>
 </div>
 
 <!-- Hero Section -->
@@ -873,7 +1111,7 @@
     </div>
 </section>
 
-<!-- Real Impact Section - No Container Border/Background -->
+<!-- Real Impact Section -->
 <section id="testimonials" class="py-12 bg-black">
     <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-8">
@@ -885,7 +1123,6 @@
             <button id="writeReviewBtn" class="write-review-btn"><i class="fas fa-pen-alt"></i> Write a Review</button>
         </div>
 
-        <!-- Marquee with transparent background - only reviews scroll -->
         <div class="marquee-container" data-aos="fade-up">
             <div class="marquee-row-left-to-right" id="marqueeRow1">
                 <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"The communication course completely transformed how I present to clients. Got promoted within 3 months!"</p><h4 class="review-name">Ahmed Raza</h4><p class="review-title">Senior Analyst</p></div>
@@ -961,7 +1198,7 @@
             </div>
             <div><h4 class="text-white font-semibold text-sm mb-3">Quick Links</h4><ul class="space-y-1"><li><a href="#" class="footer-link-custom">Home</a></li><li><a href="#services" class="footer-link-custom">Core Solutions</a></li><li><a href="#projects" class="footer-link-custom">Our Projects</a></li><li><a href="#courses" class="footer-link-custom">Programs</a></li><li><a href="#testimonials" class="footer-link-custom">Success Stories</a></li><li><a href="#contact" class="footer-link-custom">Contact Us</a></li></ul></div>
             <div><h4 class="text-white font-semibold text-sm mb-3">Our Services</h4><ul class="space-y-1"><li><a href="#" class="footer-link-custom">Soft Skills Training</a></li><li><a href="#" class="footer-link-custom">Leadership Development</a></li><li><a href="#" class="footer-link-custom">Corporate Training</a></li><li><a href="#" class="footer-link-custom">Digital Marketing</a></li><li><a href="#" class="footer-link-custom">IT & Ecommerce Solutions</a></li><li><a href="#" class="footer-link-custom">AI & Automation</a></li></ul></div>
-            <div><h4 class="text-white font-semibold text-sm mb-3">Stay Updated</h4><p class="text-gray-500 text-[0.65rem] mb-2">Subscribe to get latest updates and offers.</p><div class="flex mb-3"><input type="email" placeholder="Your email" class="newsletter-input flex-1 text-[0.65rem]"><button class="newsletter-btn ml-2 text-[0.65rem]">Subscribe</button></div><div><h4 class="text-white font-semibold text-sm mb-1">Office Hours</h4><p class="text-gray-500 text-[0.65rem]">Mon-Sat: 10AM - 6PM</p><p class="text-gray-500 text-[0.65rem]">Sun: Closed</p></div></div>
+            <div><h4 class="text-white font-semibold text-sm mb-3">Stay Updated</h4><p class="text-gray-500 text-[0.65rem] mb-2">Subscribe to get latest updates and offers.</p><div class="flex mb-3"><input type="email" placeholder="Your email" class="newsletter-input flex-1 text-[0.65rem]"><button class="newsletter-btn ml-2 text-[0.65rem]">Subscribe</button></div><div><h4 class="text-white font-semibold text-sm mb-1">Office Hours</h4><p class="text-gray-500 text-[0.65rem]">Mon-Fri: 9AM - 6PM</p><p class="text-gray-500 text-[0.65rem]">Sat: 10AM - 2PM</p><p class="text-gray-500 text-[0.65rem]">Sun: Closed</p></div></div>
         </div>
         <div class="border-t border-white/10 pt-4 text-center"><p class="text-gray-500 text-[0.6rem]">© 2026 softskills.it.com | All Rights Reserved. <a href="sitemap.html" class="text-orange-500 hover:underline">Sitemap</a></p></div>
     </div>
@@ -969,6 +1206,70 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+    // Job data
+    const jobsData = [
+        {
+            title: "Senior Soft Skills Trainer",
+            location: "Rawalpindi",
+            type: "Full-time",
+            desc: "Looking for an experienced trainer to deliver leadership and communication training programs.",
+            whatsappMsg: "Hi,%20I%20want%20to%20apply%20for%20the%20position%20of%20Senior%20Soft%20Skills%20Trainer"
+        },
+        {
+            title: "Digital Marketing Specialist",
+            location: "Remote",
+            type: "Full-time",
+            desc: "Manage social media, SEO, and digital campaigns for our brand and clients.",
+            whatsappMsg: "Hi,%20I%20want%20to%20apply%20for%20the%20position%20of%20Digital%20Marketing%20Specialist"
+        },
+        {
+            title: "Web Developer (Full Stack)",
+            location: "Rawalpindi",
+            type: "Full-time",
+            desc: "Experienced in React, Node.js, and MongoDB. Build amazing web applications.",
+            whatsappMsg: "Hi,%20I%20want%20to%20apply%20for%20the%20position%20of%20Web%20Developer%20(Full%20Stack)"
+        },
+        {
+            title: "Corporate Sales Executive",
+            location: "Rawalpindi",
+            type: "Full-time",
+            desc: "Build relationships with corporate clients and drive B2B sales.",
+            whatsappMsg: "Hi,%20I%20want%20to%20apply%20for%20the%20position%20of%20Corporate%20Sales%20Executive"
+        },
+        {
+            title: "AI/ML Intern",
+            location: "Remote",
+            type: "Internship",
+            desc: "Learn and work on real-world AI projects with our expert team.",
+            whatsappMsg: "Hi,%20I%20want%20to%20apply%20for%20the%20position%20of%20AI/ML%20Intern"
+        }
+    ];
+
+    function createJobHTML(job) {
+        return `
+            <div class="job-card">
+                <div class="job-title">${job.title}</div>
+                <div><span class="job-location"><i class="fas fa-map-marker-alt mr-1"></i> ${job.location}</span><span class="job-type"><i class="fas fa-clock mr-1"></i> ${job.type}</span></div>
+                <p class="job-desc">${job.desc}</p>
+                <a href="https://wa.me/923002457241?text=${job.whatsappMsg}" class="apply-btn" target="_blank"><i class="fab fa-whatsapp"></i> Apply on WhatsApp →</a>
+            </div>
+        `;
+    }
+
+    function initJobs() {
+        const jobsMarquee = document.getElementById('jobsMarquee');
+        if (!jobsMarquee) return;
+        
+        jobsMarquee.innerHTML = '';
+        
+        // Add jobs 3 times for seamless infinite scroll
+        for (let i = 0; i < 3; i++) {
+            jobsData.forEach(job => {
+                jobsMarquee.innerHTML += createJobHTML(job);
+            });
+        }
+    }
+
     const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true, smoothTouch: true });
     function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
@@ -1000,6 +1301,8 @@
             row1.innerHTML += row1.innerHTML;
             row2.innerHTML += row2.innerHTML;
         }
+        
+        initJobs();
     });
 
     window.addEventListener('scroll', () => {
@@ -1033,7 +1336,6 @@
     }, { threshold: 0.5 });
     document.querySelectorAll('.stat-card').forEach(card => counterObserver.observe(card));
 
-    // ONE CARD FLIP AT A TIME
     const servicesCards = document.querySelectorAll('#servicesContainer .flip-card');
     const projectCards = document.querySelectorAll('#projectsContainer .project-flip-card');
     const coursesCards = document.querySelectorAll('#coursesContainer .flip-card');
@@ -1099,7 +1401,58 @@
         });
     }
 
-    // Review Modal
+    // Careers Modal - CSS Marquee + Manual Scroll BOTH working
+    const careersModal = document.getElementById('careersModal');
+    const careersNavLink = document.getElementById('careersNavLink');
+    const mobileCareersBtn = document.getElementById('mobileCareersBtn');
+    const closeCareersModal = document.getElementById('closeCareersModal');
+    const jobsScrollContainer = document.getElementById('jobsScrollContainer');
+    let scrollTimer;
+    
+    function openCareersModal(e) {
+        e.preventDefault();
+        careersModal.classList.add('active');
+        document.body.classList.add('modal-open');
+        
+        // Reset marquee animation
+        if (jobsScrollContainer) {
+            jobsScrollContainer.classList.remove('user-scrolling');
+        }
+    }
+    
+    function closeCareersModalFunc() {
+        careersModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        
+        // Reset scroll position
+        if (jobsScrollContainer) {
+            jobsScrollContainer.scrollTop = 0;
+        }
+    }
+    
+    // Detect manual scroll - pause marquee animation
+    if (jobsScrollContainer) {
+        jobsScrollContainer.addEventListener('scroll', function() {
+            // Add class to pause CSS animation
+            this.classList.add('user-scrolling');
+            
+            // Clear previous timer
+            clearTimeout(scrollTimer);
+            
+            // Remove class after 2 seconds of no scrolling (resume marquee)
+            scrollTimer = setTimeout(() => {
+                this.classList.remove('user-scrolling');
+            }, 2000);
+        });
+    }
+    
+    if (careersNavLink) careersNavLink.addEventListener('click', openCareersModal);
+    if (mobileCareersBtn) mobileCareersBtn.addEventListener('click', openCareersModal);
+    closeCareersModal.addEventListener('click', closeCareersModalFunc);
+    careersModal.addEventListener('click', (e) => {
+        if (e.target === careersModal) closeCareersModalFunc();
+    });
+
     const modal = document.getElementById('reviewModal');
     const writeReviewBtn = document.getElementById('writeReviewBtn');
     const closeModal = document.getElementById('closeModal');
