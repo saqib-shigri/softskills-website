@@ -24,34 +24,50 @@ headers = {
 def get_data(table):
     """Get all data from a table"""
     try:
-        response = requests.get(f"{SUPABASE_URL}/rest/v1/{table}?select=*", headers=headers)
+        # URL mein bhi apikey parameter add karo
+        url = f"{SUPABASE_URL}/rest/v1/{table}?select=*&apikey={SUPABASE_KEY}"
+        response = requests.get(url, headers={
+            "Authorization": f"Bearer {SUPABASE_KEY}",
+            "Content-Type": "application/json"
+        })
         if response.status_code == 200:
             return response.json()
         else:
+            print(f"Error: {response.status_code} - {response.text}")
             return []
-    except:
+    except Exception as e:
+        print(f"Exception: {e}")
         return []
 
 def insert_data(table, data):
-    """Insert data into a table"""
     try:
-        response = requests.post(f"{SUPABASE_URL}/rest/v1/{table}", headers=headers, json=data)
+        url = f"{SUPABASE_URL}/rest/v1/{table}?apikey={SUPABASE_KEY}"
+        response = requests.post(url, headers={
+            "Authorization": f"Bearer {SUPABASE_KEY}",
+            "Content-Type": "application/json"
+        }, json=data)
         return response.status_code in [200, 201]
     except:
         return False
 
 def update_data(table, id, data):
-    """Update data in a table"""
     try:
-        response = requests.patch(f"{SUPABASE_URL}/rest/v1/{table}?id=eq.{id}", headers=headers, json=data)
+        url = f"{SUPABASE_URL}/rest/v1/{table}?id=eq.{id}&apikey={SUPABASE_KEY}"
+        response = requests.patch(url, headers={
+            "Authorization": f"Bearer {SUPABASE_KEY}",
+            "Content-Type": "application/json"
+        }, json=data)
         return response.status_code in [200, 204]
     except:
         return False
 
 def delete_data(table, id):
-    """Delete data from a table"""
     try:
-        response = requests.delete(f"{SUPABASE_URL}/rest/v1/{table}?id=eq.{id}", headers=headers)
+        url = f"{SUPABASE_URL}/rest/v1/{table}?id=eq.{id}&apikey={SUPABASE_KEY}"
+        response = requests.delete(url, headers={
+            "Authorization": f"Bearer {SUPABASE_KEY}",
+            "Content-Type": "application/json"
+        })
         return response.status_code in [200, 204]
     except:
         return False
@@ -410,4 +426,4 @@ def admin_delete_job(id):
     return redirect(url_for('admin_jobs'))
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=False, host='0.0.0.0', port=10000)
