@@ -426,4 +426,4 @@ def admin_delete_job(id):
     return redirect(url_for('admin_jobs'))
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=10000)
+    app.run(debug=True, port=5000)
