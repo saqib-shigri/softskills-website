@@ -370,22 +370,35 @@ def admin_jobs():
 @login_required
 def admin_add_job():
     if request.method == 'POST':
-        requirements = request.form.get('requirements', '').split('\n')
-        requirements = [r.strip() for r in requirements if r.strip()]
+        try:
+            print("Form data received:", request.form)  # Debug
+            
+            requirements = request.form.get('requirements', '').split('\n')
+            requirements = [r.strip() for r in requirements if r.strip()]
+            
+            data = {
+                'title': request.form.get('title'),
+                'location': request.form.get('location'),
+                'job_type': request.form.get('job_type'),
+                'description': request.form.get('description'),
+                'requirements': requirements,
+                'is_active': request.form.get('is_active') == 'on',
+                'display_order': int(request.form.get('display_order', 0))
+            }
+            
+            print("Data to insert:", data)  # Debug
+            
+            result = insert_data('jobs', data)
+            print("Insert result:", result)  # Debug
+            
+            if result:
+                flash('Job added successfully!', 'success')
+            else:
+                flash('Error adding job - check Vercel logs', 'error')
+        except Exception as e:
+            print(f"Exception: {e}")
+            flash(f'Error: {str(e)}', 'error')
         
-        data = {
-            'title': request.form.get('title'),
-            'location': request.form.get('location'),
-            'job_type': request.form.get('job_type'),
-            'description': request.form.get('description'),
-            'requirements': requirements,
-            'is_active': request.form.get('is_active') == 'on',
-            'display_order': int(request.form.get('display_order', 0))
-        }
-        if insert_data('jobs', data):
-            flash('Job added successfully!', 'success')
-        else:
-            flash('Error adding job', 'error')
         return redirect(url_for('admin_jobs'))
     
     return render_template('admin/job_form.html', action='Add')
