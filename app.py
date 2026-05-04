@@ -371,32 +371,47 @@ def admin_jobs():
 def admin_add_job():
     if request.method == 'POST':
         try:
-            print("Form data received:", request.form)  # Debug
+            # Get form data
+            title = request.form.get('title')
+            location = request.form.get('location')
+            job_type = request.form.get('job_type')
+            description = request.form.get('description')
+            is_active = request.form.get('is_active') == 'on'
+            display_order = int(request.form.get('display_order', 0))
             
-            requirements = request.form.get('requirements', '').split('\n')
-            requirements = [r.strip() for r in requirements if r.strip()]
+            # Process requirements (one per line)
+            requirements_text = request.form.get('requirements', '')
+            requirements = [r.strip() for r in requirements_text.split('\n') if r.strip()]
             
+            # Prepare data for Supabase
             data = {
-                'title': request.form.get('title'),
-                'location': request.form.get('location'),
-                'job_type': request.form.get('job_type'),
-                'description': request.form.get('description'),
+                'title': title,
+                'location': location,
+                'job_type': job_type,
+                'description': description,
                 'requirements': requirements,
-                'is_active': request.form.get('is_active') == 'on',
-                'display_order': int(request.form.get('display_order', 0))
+                'is_active': is_active,
+                'display_order': display_order
             }
             
-            print("Data to insert:", data)  # Debug
+            # Insert into Supabase
+            url = f"{SUPABASE_URL}/rest/v1/jobs"
+            response = requests.post(
+                url,
+                headers={
+                    "apikey": SUPABASE_KEY,
+                    "Authorization": f"Bearer {SUPABASE_KEY}",
+                    "Content-Type": "application/json"
+                },
+                json=data
+            )
             
-            result = insert_data('jobs', data)
-            print("Insert result:", result)  # Debug
-            
-            if result:
+            if response.status_code in [200, 201]:
                 flash('Job added successfully!', 'success')
             else:
-                flash('Error adding job - check Vercel logs', 'error')
+                flash(f'Error: {response.status_code} - {response.text}', 'error')
+                
         except Exception as e:
-            print(f"Exception: {e}")
             flash(f'Error: {str(e)}', 'error')
         
         return redirect(url_for('admin_jobs'))
