@@ -6,5 +6,5 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app import app
 
-# Vercel serverless function handler
+# This is for Vercel serverless function
 handler = app
